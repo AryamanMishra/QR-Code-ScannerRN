@@ -1,3 +1,4 @@
 change ask permission msg
 get qr code itself
 focus on qr border in cam
+slider thumb image zoom icon
