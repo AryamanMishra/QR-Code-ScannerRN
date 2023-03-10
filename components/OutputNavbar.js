@@ -14,7 +14,7 @@ const OutputNavbar = ({ navigation })=> {
                 >
                     <ArrowLeft 
                         name='arrow-left'
-                        size={28}
+                        size={29}
                         color='white'
                         
                     />
