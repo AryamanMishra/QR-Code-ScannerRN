@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     },
     outputData : {
         color:'#90e0ef',
-        lineHeight:32,
+        lineHeight:33,
         fontSize:20,
         textDecorationLine:'underline'
     },
