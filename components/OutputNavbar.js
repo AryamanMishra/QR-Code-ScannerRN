@@ -1,24 +1,27 @@
 import React from 'react'
-import { Text, View,StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, View,StyleSheet, TouchableOpacity,Pressable } from 'react-native'
 import ArrowLeft from 'react-native-vector-icons/Octicons'
 
 
 const OutputNavbar = ({ navigation })=> {
     return (
         <View style={styles.outputNavbarContainer}>
-            <View style={styles.innerWrapper}>
-                <TouchableOpacity
+            <View style={styles.innerWrapper}
+                >
+                <Pressable
+                    android_ripple={{color:'grey',borderless:true,radius:35}}
                     onPress={()=> {
-                        navigation.navigate('HomeScreen')
-                    }}
+                            navigation.navigate('HomeScreen')
+                        }}
                 >
                     <ArrowLeft 
                         name='arrow-left'
-                        size={29}
+                        size={32}
                         color='white'
-                        
+                
                     />
-                </TouchableOpacity>
+                </Pressable>
+               
                 <Text style={styles.outputNavbarText}>Output</Text>
             </View>
         </View>
@@ -36,8 +39,8 @@ const styles = StyleSheet.create({
     },
     innerWrapper : {
         alignItems:'center',
-        marginTop:33,
-        marginLeft:28,
+        marginTop:38,
+        marginLeft:30,
         flexDirection:'row',
         gap:30, 
     },

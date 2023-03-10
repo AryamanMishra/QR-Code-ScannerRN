@@ -48,7 +48,10 @@ const CameraView = ({ navigation })=> {
     const getCurrentTime = ()=> {
         let hours = new Date().getHours()
         let minutes = new Date().getMinutes()
-        
+        if (minutes / 10 < 1) {
+            minutes = minutes.toString()
+            minutes = '0'+  minutes
+        }
         return hours + ':' + minutes
     }
 
@@ -128,7 +131,7 @@ const styles = StyleSheet.create({
     },  
     zoomControlSlider : {
         position:'absolute',
-        top:'78%',
+        top:'80%',
         marginLeft:'18%',
         backgroundColor:'#181818',
         borderRadius:50,
@@ -145,7 +148,7 @@ const styles = StyleSheet.create({
     },
     zoomTextView : {  
         position:'absolute',
-        top:'87%',
+        top:'89%',
         left:'43%',
     },  
     zoomText : { 
