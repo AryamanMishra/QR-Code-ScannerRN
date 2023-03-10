@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Camera,CameraType } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { StyleSheet,View,Text } from 'react-native';
+import { StyleSheet,View,Text,Vibration } from 'react-native';
 import { useGlobalContext } from '../context';
 import { useIsFocused } from '@react-navigation/native';
 import QrCodeContainer from './QrCodeContainer';
@@ -63,6 +63,7 @@ const CameraView = ({ navigation })=> {
         else {
             amOrPm = 'AM'
         }
+        Vibration.vibrate([100])
         navigation.navigate('OutputScreen', {
             data,
             type,
@@ -100,13 +101,13 @@ const CameraView = ({ navigation })=> {
                     onValueChange={(value)=>setZoom(value)}
                     minimumTrackTintColor='gold'
                     thumbTintColor='gold'
-                    step={0.1}
+                    // step={0.1}
                     // thumbImage={sliderThumbIcon}
                 />  
             </View>
             <View style={styles.zoomTextView}>
                     <Text style={styles.zoomText}>Zoom : {
-                        zoom === 0 ? 0 : zoom.toFixed(1)
+                        zoom <= 0.05 ? 0 : zoom.toFixed(1)
                     }</Text>
             </View>     
         </View>
