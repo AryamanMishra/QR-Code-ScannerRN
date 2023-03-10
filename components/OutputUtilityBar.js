@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         flex:1,
         width:'100%',
         position:'absolute',
-        top:'51%',
+        top:'52%',
     },
     icon : {
         padding:12,

@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
         color:'#90e0ef',
         lineHeight:33,
         fontSize:20,
-        textDecorationLine:'underline'
+        textDecorationLine:'underline',
+        marginBottom:5
     },
     outputDate : {
         color:'grey',
