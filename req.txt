@@ -1,0 +1,2 @@
+change ask permission msg
+get qr code itself
