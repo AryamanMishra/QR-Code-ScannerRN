@@ -66,7 +66,7 @@ const HomeScreen = ({ navigation })=> {
 const styles = StyleSheet.create({
 	appContainer : {
 		flex:1,
-		backgroundColor:'#000'
+		backgroundColor:'#121917'
 	}
 })
 export default HomeScreen

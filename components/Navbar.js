@@ -38,7 +38,7 @@ const Navbar = ({ exitApp })=> {
 
 const styles = StyleSheet.create({
     navbarContainer : {
-        flex:1,
+        flex:1.1,
         alignItems:'center',
         justifyContent:'space-between',
         flexDirection:'row',

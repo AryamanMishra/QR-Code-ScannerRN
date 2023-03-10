@@ -27,8 +27,8 @@ const OutputNavbar = ({ navigation })=> {
 
 const styles = StyleSheet.create({
     outputNavbarContainer : {
-        flex:1.2,
-        backgroundColor:'#000',
+        flex:1.1,
+        backgroundColor:'#121917',
         width:'100%',
         justifyContent:'center',
         borderBottomWidth:0.5,

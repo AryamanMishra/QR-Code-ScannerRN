@@ -61,7 +61,9 @@ const CameraView = ({ navigation })=> {
                     style={styles.camera} 
                     type={CameraType.back}
                 >
+                    {/* <View style={styles.outerQrZone}/> */}
                     <QrCodeContainer />
+                    {/* <View style={styles.outerQrZone}/> */}
                 </Camera>
             }  
         </View>
@@ -79,6 +81,11 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems:'center',
         justifyContent:'center',
+        backgroundColor: 'rgba(0,0,0,0.5)'
+    },
+    outerQrZone : {
+        backgroundColor: 'rgba(52, 52, 52, 0.1)',
+        flex:1
     }
 })
 
