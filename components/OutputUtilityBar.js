@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
         top:'50%',
     },
     icon : {
-        padding:11,
+        padding:12,
         flexDirection:'row',
-        margin:16,
+        margin:1,
         gap:13,
         borderWidth:0.2,
         borderColor:'white',
