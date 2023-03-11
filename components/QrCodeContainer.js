@@ -16,9 +16,9 @@ const QrCodeContainer = ()=> {
 
 const styles = StyleSheet.create({
     qrCodeContainerView : {
-        height:210,
-        width:200,
-        marginBottom:110,
+        height:215,
+        width:205,
+        marginBottom:100,
         backgroundColor:'rgba(255,255,255,0.25)'
     },
     topLeftContainer : {

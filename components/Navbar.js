@@ -13,7 +13,6 @@ const Navbar = ({ exitApp })=> {
             <TouchableOpacity
                 style={styles.navbarIcon}
                 onPress={toggleFlashLight}
-                activeOpacity={0.3}
             >
                 <FlashLightIcon
                     name={isFlashLightOn ? 'flashlight-off': 'flashlight'}
@@ -24,7 +23,6 @@ const Navbar = ({ exitApp })=> {
             <TouchableOpacity
                 style={styles.navbarIcon}
                 onPress={exitApp}
-                activeOpacity={0.3}
             >
                 <CrossIcon
                     name='cross'

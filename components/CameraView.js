@@ -76,7 +76,6 @@ const CameraView = ({ navigation })=> {
                     type={CameraType.back}
                     zoom={zoom}
                 >
-                    {/* <View style={styles.outerQrZone}/> */}
                     <QrCodeContainer />
                 </Camera>
             }  
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
     cameraContainer : {
         flex:4,
         justifyContent:'center',
-        borderTopWidth:0.5,
+        borderTopWidth:0.6,
         borderTopColor:'grey',
     },
     camera: {
@@ -114,11 +113,6 @@ const styles = StyleSheet.create({
         color:'grey',
         fontSize:13
     },
-    outerQrZone : {
-        height:20,
-        width:20,
-        backgroundColor:'rgba(255,255,255,0.1)'
-    }
 })
 
 export default CameraView
