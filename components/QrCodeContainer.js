@@ -26,9 +26,9 @@ const styles = StyleSheet.create({
         height:50,
         width:50,
         borderLeftWidth:3,
-        borderLeftColor:'gold',
+        borderLeftColor:'#FFC000',
         borderTopWidth:3,
-        borderTopColor:'gold'
+        borderTopColor:'#FFC000'
     },
     topRightContainer : {
         position:'absolute',
@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
         height:50,
         width:50,
         borderRightWidth:3,
-        borderRightColor:'gold',
+        borderRightColor:'#FFC000',
         borderTopWidth:3,
-        borderTopColor:'gold'
+        borderTopColor:'#FFC000'
     },
     bottomRightContainer : {
         position:'absolute',
@@ -47,9 +47,9 @@ const styles = StyleSheet.create({
         height:50,
         width:50,
         borderRightWidth:3,
-        borderRightColor:'gold',
+        borderRightColor:'#FFC000',
         borderBottomWidth:3,
-        borderBottomColor:'gold'
+        borderBottomColor:'#FFC000'
     },
     bottomLeftContainer : {
         position:'absolute',
@@ -58,9 +58,9 @@ const styles = StyleSheet.create({
         height:50,
         width:50,
         borderLeftWidth:3,
-        borderLeftColor:'yellow',
+        borderLeftColor:'#FFC000',
         borderBottomWidth:3,
-        borderBottomColor:'yellow'
+        borderBottomColor:'#FFC000'
     },
 })
 

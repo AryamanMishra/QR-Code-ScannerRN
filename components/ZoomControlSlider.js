@@ -12,7 +12,7 @@ const ZoomControlSlider = ({ zoom,setZoom })=> {
                 maximumValue={1}
                 value={zoom}
                 onValueChange={(value)=>setZoom(value)}
-                minimumTrackTintColor='gold'
+                minimumTrackTintColor='#FFC000'
                 maximumTrackTintColor='grey'
                 thumbImage={zoomInImage}
                 thumbTintColor='gold'

@@ -28,7 +28,7 @@ const OutputUtilityBar = ({ checkURL })=> {
                         color='white'
                         size={27}
                     />
-                    <Text style={styles.IconText}>View QR Code</Text>
+                    <Text style={styles.IconText}>View Code</Text>
                 </View>
             </TouchableOpacity>
         </View>

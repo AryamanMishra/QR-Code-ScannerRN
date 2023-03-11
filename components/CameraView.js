@@ -36,7 +36,7 @@ const CameraView = ({ navigation })=> {
 
 
 
-    const handleqrCodeScan = ({ data,type })=> {
+    const handleqrCodeScan = ({ data,type,cornerPoints })=> {
         let currentDate = getCurrentDate()
         let currentTime = getCurrentTime()
 
@@ -48,8 +48,8 @@ const CameraView = ({ navigation })=> {
             amOrPm = 'AM'
         }
 
-        Vibration.vibrate(80)
-        
+        Vibration.vibrate(100)
+        // console.log(cornerPoints)
         setTimeout(()=> {
             navigation.navigate('OutputScreen', {
                 data,
@@ -58,7 +58,7 @@ const CameraView = ({ navigation })=> {
                 currentTime,
                 amOrPm
             })
-        },80)
+        },100)
         
     }
 
@@ -76,6 +76,7 @@ const CameraView = ({ navigation })=> {
                     type={CameraType.back}
                     zoom={zoom}
                 >
+                    {/* <View style={styles.outerQrZone}/> */}
                     <QrCodeContainer />
                 </Camera>
             }  
@@ -114,8 +115,9 @@ const styles = StyleSheet.create({
         fontSize:13
     },
     outerQrZone : {
-        backgroundColor:'#121917',
-        flex:1
+        height:20,
+        width:20,
+        backgroundColor:'rgba(255,255,255,0.1)'
     }
 })
 
