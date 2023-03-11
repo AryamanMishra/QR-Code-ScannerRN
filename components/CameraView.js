@@ -34,6 +34,8 @@ const CameraView = ({ navigation })=> {
         return hours + ':' + minutes
     }
 
+
+
     const handleqrCodeScan = ({ data,type })=> {
         let currentDate = getCurrentDate()
         let currentTime = getCurrentTime()
@@ -45,14 +47,19 @@ const CameraView = ({ navigation })=> {
         else {
             amOrPm = 'AM'
         }
-        Vibration.vibrate([100])
-        navigation.navigate('OutputScreen', {
-            data,
-            type,
-            currentDate,
-            currentTime,
-            amOrPm
-        })
+
+        Vibration.vibrate(80)
+        
+        setTimeout(()=> {
+            navigation.navigate('OutputScreen', {
+                data,
+                type,
+                currentDate,
+                currentTime,
+                amOrPm
+            })
+        },80)
+        
     }
 
     return (

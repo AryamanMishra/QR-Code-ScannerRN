@@ -15,7 +15,7 @@ const ZoomControlSlider = ({ zoom,setZoom })=> {
                 minimumTrackTintColor='gold'
                 maximumTrackTintColor='grey'
                 thumbImage={zoomInImage}
-                thumbTintColor='yellow'
+                thumbTintColor='gold'
             />  
         </View>
     )
