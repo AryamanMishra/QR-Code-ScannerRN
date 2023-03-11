@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         height:210,
         width:200,
         marginBottom:110,
-        // backgroundColor:'#ededed'
+        backgroundColor:'rgba(255,255,255,0.25)'
     },
     topLeftContainer : {
         position:'absolute',
