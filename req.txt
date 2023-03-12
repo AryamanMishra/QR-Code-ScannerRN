@@ -1,3 +1,2 @@
 change icon
-zoom slider image size decrease
 get qr code itself
