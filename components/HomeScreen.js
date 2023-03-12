@@ -13,7 +13,7 @@ const HomeScreen = ({ navigation })=> {
 
 	const exitApp = ()=> {
 		Alert.alert(
-			'Close QR-Scanner',
+			'Close QR Scanner',
 			'Are you sure you want to quit the application ?',
 			[
 				{
