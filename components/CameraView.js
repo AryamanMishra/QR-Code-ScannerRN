@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Camera,CameraType } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import { StyleSheet,View,Text,Vibration } from 'react-native';
+import { StyleSheet,View,Text,Vibration,Pressable } from 'react-native';
 import { useGlobalContext } from '../context';
 import { useIsFocused } from '@react-navigation/native';
 import QrCodeContainer from './QrCodeContainer';
 import ZoomControlSlider from './ZoomControlSlider';
-
+import AboutIcon from 'react-native-vector-icons/Fontisto'
 
 
 
@@ -79,7 +79,7 @@ const CameraView = ({ navigation })=> {
                     <QrCodeContainer />
                 </Camera>
             }  
-           
+            
             <ZoomControlSlider zoom={zoom} setZoom={setZoom}/>
 
             <View style={styles.zoomTextView}>
@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
         color:'grey',
         fontSize:13
     },
+   
 })
 
 export default CameraView

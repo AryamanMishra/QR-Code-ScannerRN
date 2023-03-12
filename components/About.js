@@ -39,7 +39,7 @@ const About = ({ navigation })=> {
                     >
                         <GithubIcon 
                             name='github'
-                            size={30}
+                            size={31}
                             color='white'   
                         />
                     </TouchableOpacity>
@@ -96,9 +96,8 @@ const styles = StyleSheet.create({
         lineHeight:28
     },
     githubLink : {
-        marginTop:67,
-        marginRight:42,
-        
+        marginTop:63,
+        marginRight:35,   
     },
     
     versionInfo : {

@@ -1,10 +1,12 @@
-import React,{useState} from 'react'
-import { View,TouchableOpacity,StyleSheet } from 'react-native'
+import React from 'react'
+import { View,TouchableOpacity,StyleSheet,Pressable } from 'react-native'
 import FlashLightIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import CrossIcon from 'react-native-vector-icons/Entypo'
 import { useGlobalContext } from '../context'
+import AboutIcon from 'react-native-vector-icons/Fontisto'
 
-const Navbar = ({ exitApp })=> {
+
+const Navbar = ({ exitApp,navigation })=> {
 
     const {isFlashLightOn,toggleFlashLight} = useGlobalContext()
     
@@ -20,6 +22,20 @@ const Navbar = ({ exitApp })=> {
                     size={30}
                 />
             </TouchableOpacity>
+            <View style={styles.aboutPageLink}>
+                <Pressable
+                    android_ripple={{color:'grey',borderless:true,radius:30}}
+                    onPress={()=> {
+                            navigation.navigate('AboutScreen')
+                    }}
+                >
+                    <AboutIcon 
+                        name='info'
+                        size={25}
+                        color='white'
+                    />
+                </Pressable>  
+            </View>
             <TouchableOpacity
                 style={styles.navbarIcon}
                 onPress={exitApp}
@@ -48,6 +64,9 @@ const styles = StyleSheet.create({
         borderColor:'white',
         paddingVertical:13,
         paddingHorizontal:13,
+        marginTop:30
+    },
+    aboutPageLink : {
         marginTop:30
     }
 })

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Camera } from 'expo-camera';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,View,BackHandler,Alert } from 'react-native';
+import { StyleSheet,View,BackHandler,Alert,ActivityIndicator } from 'react-native';
 import DefaultCamera from './DefaultCameraView';
 import Navbar from './Navbar';
 import CameraView from './CameraView';
@@ -39,11 +39,10 @@ const HomeScreen = ({ navigation })=> {
 	
 
 	if (!permission) {
-		return <View style={{flex:1}}/>;
+		return <ActivityIndicator size="large" style={styles.loadingContainer} color="#ffffff"/>;
 	}
 
-	if (!permission.granted) {
-		
+	if (!permission.granted) {	
 		return (
 			<View style={styles.appContainer}>
 				<Navbar exitApp={exitApp}/>
@@ -55,7 +54,7 @@ const HomeScreen = ({ navigation })=> {
 	
 	return (
 		<View style={styles.appContainer}>
-			<Navbar exitApp={exitApp}/>
+			<Navbar exitApp={exitApp} navigation={navigation}/>
 			<CameraView navigation={navigation}/>
 			<StatusBar style='light'/>
 		</View>	
@@ -64,6 +63,11 @@ const HomeScreen = ({ navigation })=> {
 
 
 const styles = StyleSheet.create({
+	loadingContainer : {
+		flex:1,
+		justifyContent:'center',
+		backgroundColor:'black'
+	},
 	appContainer : {
 		flex:1,
 		backgroundColor:'#121917'
