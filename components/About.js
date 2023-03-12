@@ -40,8 +40,7 @@ const About = ({ navigation })=> {
                         <GithubIcon 
                             name='github'
                             size={30}
-                            color='white'
-                            
+                            color='white'   
                         />
                     </TouchableOpacity>
                    
