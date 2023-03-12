@@ -9,16 +9,16 @@ const OutputNavbar = ({ navigation })=> {
             <View style={styles.innerWrapper}
                 >
                 <Pressable
-                    android_ripple={{color:'grey',borderless:true,radius:35}}
+                    android_ripple={{color:'grey',borderless:true,radius:30}}
                     onPress={()=> {
                             navigation.navigate('HomeScreen')
                         }}
                 >
                     <ArrowLeft 
                         name='arrow-left'
-                        size={32}
+                        size={30}
                         color='white'
-                
+                        style={{marginTop:5}}
                     />
                 </Pressable>
                
