@@ -24,7 +24,7 @@ const Navbar = ({ exitApp,navigation })=> {
             </TouchableOpacity>
             <View style={styles.aboutPageLink}>
                 <Pressable
-                    android_ripple={{color:'grey',borderless:true,radius:30}}
+                    android_ripple={{color:'grey',borderless:true,radius:35}}
                     onPress={()=> {
                             navigation.navigate('AboutScreen')
                     }}
