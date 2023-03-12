@@ -3,6 +3,7 @@ import { AppProvider } from "./context.js"
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import QrScanOutput from "./components/QrScanOutput.js";
+import About from "./components/About.js";
 
 
 const Stack = createNativeStackNavigator();
@@ -24,6 +25,13 @@ const App = ()=> {
 					<Stack.Screen 
 						name="OutputScreen" 
 						component={QrScanOutput} 
+						options={{
+							animation:'slide_from_right'
+						}}
+					/>
+					<Stack.Screen
+						name="AboutScreen"
+						component={About}
 						options={{
 							animation:'slide_from_right'
 						}}

@@ -29,6 +29,9 @@ const OutputUtilityBar = ({ checkURL })=> {
                         size={27}
                     />
                     <Text style={styles.IconText}>View Code</Text>
+                    <View> 
+                        <Text style={styles.tempText}>To be available soon </Text> 
+                    </View>
                 </View>
             </TouchableOpacity>
         </View>
@@ -49,12 +52,18 @@ const styles = StyleSheet.create({
         gap:13,
         borderWidth:0.2,
         borderColor:'white',
-        borderRadius:50
+        borderRadius:50,
     },
     IconText : {
         color:'white',
         fontSize:18,
         letterSpacing:0.5,
+    },
+    tempText : {
+        fontSize:10,
+        color:'grey',
+        fontStyle:'italic',
+        marginLeft:100
     }
 })
 export default OutputUtilityBar

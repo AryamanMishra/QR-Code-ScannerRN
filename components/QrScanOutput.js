@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View,Text,StyleSheet, Linking } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import OutputNavbar from './OutputNavbar';
@@ -14,6 +14,7 @@ const QrScanOutput = ({ route,navigation })=> {
             Linking.openURL(data)
         }
     }
+
     
     return (
         <View style={styles.outputContainer}>
@@ -69,7 +70,8 @@ const styles = StyleSheet.create({
         color:'grey',
         fontSize:13,
         fontStyle:'italic'
-    }
+    },
+    
 })
 
 export default QrScanOutput

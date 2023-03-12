@@ -1,13 +1,15 @@
 import React from 'react'
-import { Text, View,StyleSheet, TouchableOpacity,Pressable } from 'react-native'
+import { Text, View,StyleSheet, Pressable, TouchableOpacity } from 'react-native'
 import ArrowLeft from 'react-native-vector-icons/Octicons'
+import AboutIcon from 'react-native-vector-icons/Fontisto'
 
 
 const OutputNavbar = ({ navigation })=> {
+
+
     return (
         <View style={styles.outputNavbarContainer}>
-            <View style={styles.innerWrapper}
-                >
+            <View style={styles.innerWrapper}>
                 <Pressable
                     android_ripple={{color:'grey',borderless:true,radius:30}}
                     onPress={()=> {
@@ -20,9 +22,22 @@ const OutputNavbar = ({ navigation })=> {
                         color='white'
                         style={{marginTop:5}}
                     />
-                </Pressable>
-               
+                </Pressable> 
                 <Text style={styles.outputNavbarText}>Output</Text>
+            </View>
+            <View style={styles.aboutPageLink}>
+                <Pressable
+                    android_ripple={{color:'grey',borderless:true,radius:30}}
+                    onPress={()=> {
+                            navigation.navigate('AboutScreen')
+                    }}
+                >
+                    <AboutIcon 
+                        name='info'
+                        size={22}
+                        color='white'
+                    />
+                </Pressable>  
             </View>
         </View>
     )
@@ -33,9 +48,10 @@ const styles = StyleSheet.create({
         flex:1.1,
         backgroundColor:'#121917',
         width:'100%',
-        justifyContent:'center',
+        justifyContent:'space-between',
         borderBottomWidth:0.5,
-        borderBottomColor:'grey'
+        borderBottomColor:'grey',
+        flexDirection:'row'
     },
     innerWrapper : {
         alignItems:'center',
@@ -48,6 +64,10 @@ const styles = StyleSheet.create({
         color:'white',
         fontSize:21,
         letterSpacing:0.8
+    },
+    aboutPageLink : {
+        marginTop:67,
+        marginRight:42,
     }
 })
 
