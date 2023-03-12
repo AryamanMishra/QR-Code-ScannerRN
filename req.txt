@@ -1,2 +1,1 @@
-change icon
 get qr code itself

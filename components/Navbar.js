@@ -31,7 +31,7 @@ const Navbar = ({ exitApp,navigation })=> {
                 >
                     <AboutIcon 
                         name='info'
-                        size={25}
+                        size={26}
                         color='white'
                     />
                 </Pressable>  
