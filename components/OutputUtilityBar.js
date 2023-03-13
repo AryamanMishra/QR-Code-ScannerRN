@@ -7,7 +7,7 @@ const OutputUtilityBar = ({ checkURL })=> {
     return (
         <View style={styles.outputUtilityBar}>
             <TouchableOpacity
-                activeOpacity={0.3}
+                activeOpacity={0.4}
                 onPress={checkURL}
             >
                 <View style={styles.icon}>
@@ -20,7 +20,7 @@ const OutputUtilityBar = ({ checkURL })=> {
                 </View>
             </TouchableOpacity>
             <TouchableOpacity
-                 activeOpacity={0.3}
+                 activeOpacity={0.4}
             >
                 <View style={styles.icon}>
                     <QRCodeIcon 
