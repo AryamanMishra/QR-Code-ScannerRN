@@ -3,6 +3,8 @@ import { View,StyleSheet } from 'react-native'
 import Slider from '@react-native-community/slider';
 import zoomInImage from '../assets/zoomIcon.png'
 
+
+// provides zoom function in form of a slider
 const ZoomControlSlider = ({ zoom,setZoom })=> {
     return (
         <View style={styles.zoomControlSlider}>      
@@ -10,18 +12,28 @@ const ZoomControlSlider = ({ zoom,setZoom })=> {
                 style={styles.slider}
                 minimumValue={0}
                 maximumValue={1}
-                value={zoom}
+
+                // linking zoom value to state variable to handle it dynamically
+                value={zoom} 
+
+                // if user slides, the resultant slide value is assigned to zoom state variable using setZoom
+                // which in turns affect the zoom on camera, as camera zoom prop is assigned the same state variable
+                // and thus zoom is handled on sliding
                 onValueChange={(value)=>setZoom(value)}
+
+                // slider track colors
                 minimumTrackTintColor='#FFC000'
                 maximumTrackTintColor='grey'
+
+                // slider thumb is assigned the zoom-in image present in assest folder
                 thumbImage={zoomInImage}
-                thumbTintColor='gold'
             />  
         </View>
     )
 }
 
 
+// styles
 const styles = StyleSheet.create({
     zoomControlSlider : {
         position:'absolute',

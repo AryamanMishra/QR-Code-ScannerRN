@@ -5,10 +5,17 @@ import GithubIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import pkgInfo from '../package.json'
 
 
+// about screen
 const About = ({ navigation })=> {
 
+    // github repo link
     const githubLink = 'https://github.com/AryamanMishra/QR-Code-ScannerRN'
+
+
+    // checks if url is valid
     const checkURL = ()=> {
+
+        // if valid open url
         if (Linking.canOpenURL) {
             Linking.openURL(githubLink)
         }
@@ -16,8 +23,12 @@ const About = ({ navigation })=> {
 
     return (
         <View style={styles.aboutPage}>
+
+        { /* about page navbar */}
             <View style={styles.aboutPageNav}>
                 <View style={styles.innerNav}>
+
+                   {/* nav button to go back one screen*/}
                     <Pressable
                             android_ripple={{color:'grey',borderless:true,radius:30}}
                             onPress={()=> {
@@ -33,6 +44,9 @@ const About = ({ navigation })=> {
                     </Pressable>
                     <Text style={styles.aboutNavbarText}>About</Text>
                 </View>
+
+
+                {/* github repo icon */}
                 <View style={styles.githubLink}>
                     <TouchableOpacity
                         onPress={checkURL}
@@ -46,11 +60,17 @@ const About = ({ navigation })=> {
                    
                 </View>
             </View>
+
+
+            {/* main content */}
             <View style={styles.aboutPageContent}>
                 <Text style={styles.text}>
                     A basic QR/Bar code scanner application made using react-native and react hooks
                 </Text>
             </View>
+
+
+            {/* footer displaying app name and version number */}
             <View style={styles.versionInfo}>
                 <Text style={styles.versionAppNameText}>@QR Scanner</Text>
                 <Text style={styles.versionAppNameText}>Version : {pkgInfo.version}</Text>
@@ -59,9 +79,12 @@ const About = ({ navigation })=> {
     )
 }
 
+
+
+// styles 
 const styles = StyleSheet.create({
     aboutPage : {
-        flex:1
+        flex:1 // main div covers whole page
     },
     aboutPageNav : {
         flex:1.05,

@@ -6,22 +6,39 @@ import QrScanOutput from "./components/QrScanOutput.js";
 import About from "./components/About.js";
 
 
-const Stack = createNativeStackNavigator();
-const App = ()=> {
 
+// creating stack navigator to handle navigation between screens
+const Stack = createNativeStackNavigator();
+
+
+
+// main app component
+const App = ()=> {
 	
 	return(
+
+		// app provider gives global context to all components
 		<AppProvider>
+
+			{/* handles navigation */}
 			<NavigationContainer>
+
+				{/* stack navigator to contains multiple screens inside it  */}
 				<Stack.Navigator
+
+					// no screen name to be shown on top
 					screenOptions={{
 						headerShown: false,
 					}}
 				>
+
+					{/* home screen  */}
 					<Stack.Screen 
 						name="HomeScreen" 
 						component={HomeScreen} 
 					/>
+
+					{/* output screen  */}
 					<Stack.Screen 
 						name="OutputScreen" 
 						component={QrScanOutput} 
@@ -29,6 +46,8 @@ const App = ()=> {
 							animation:'slide_from_right'
 						}}
 					/>
+
+					{/* about screen  */}
 					<Stack.Screen
 						name="AboutScreen"
 						component={About}
@@ -42,5 +61,6 @@ const App = ()=> {
 	) 
 		
 }
+
 
 export default App

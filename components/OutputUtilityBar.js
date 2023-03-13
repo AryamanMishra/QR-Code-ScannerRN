@@ -3,6 +3,9 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import WebIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import QRCodeIcon from 'react-native-vector-icons/Ionicons'
 
+
+
+// utility bar on output page providing open website and view code options
 const OutputUtilityBar = ({ checkURL })=> {
     return (
         <View style={styles.outputUtilityBar}>
@@ -11,6 +14,8 @@ const OutputUtilityBar = ({ checkURL })=> {
                 onPress={checkURL}
             >
                 <View style={styles.icon}>
+
+                    {/* react native web search icon  */}
                     <WebIcon
                         name='search-web'
                         color='white'
@@ -23,6 +28,8 @@ const OutputUtilityBar = ({ checkURL })=> {
                  activeOpacity={0.4}
             >
                 <View style={styles.icon}>
+
+                 {/* react native qr icon  */}
                     <QRCodeIcon 
                         name='qr-code-outline'
                         color='white'
@@ -38,6 +45,9 @@ const OutputUtilityBar = ({ checkURL })=> {
     )
 }
 
+
+
+// styles
 const styles = StyleSheet.create({
     outputUtilityBar : {
         flex:1,

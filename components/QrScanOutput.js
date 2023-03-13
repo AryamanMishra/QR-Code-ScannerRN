@@ -5,11 +5,18 @@ import OutputNavbar from './OutputNavbar';
 import OutputUtilityBar from './OutputUtilityBar';
 
 
+// qr output screen
 const QrScanOutput = ({ route,navigation })=> {
 
+
+    // recieve data from camera view(home screen)
     const { data,type,currentDate,currentTime,amOrPm } = route.params
 
+
+    // check if URL is valid or not
     const checkURL = ()=> {
+
+        // if url is valid open it
         if (Linking.canOpenURL) {
             Linking.openURL(data)
         }
@@ -18,33 +25,51 @@ const QrScanOutput = ({ route,navigation })=> {
     
     return (
         <View style={styles.outputContainer}>
+
+            {/* navbar  */}
             <OutputNavbar navigation={navigation}/>
+
+            {/* main content  */}
             <View style={styles.outputContent}>
+
+                {/* recieved data  */}
                 <Text 
                     style={styles.outputData}
                     onPress={checkURL}
                 >
                     {data}
                 </Text>
+
+
+                {/* info about bar code type  */}
                 <Text
                     style={styles.outputDate}    
                 >
                     Bar Code type:  {type}
                 </Text>
+
+
+                {/* tells date and time of scan */}
                 <Text
                     style={styles.outputDate}    
                 >
                     Scanned on:  {currentDate}   {currentTime} {amOrPm}
                 </Text>
-                </View>
+            </View>
+
+            {/* utility bar  */}
             <OutputUtilityBar
                 checkURL={checkURL}
             />
+
             <StatusBar style='light'/>
         </View>
     )
 }
 
+
+
+// styles
 const styles = StyleSheet.create({
     outputContainer : {
         flex:1,
