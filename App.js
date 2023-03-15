@@ -1,9 +1,9 @@
-import HomeScreen from "./components/HomeScreen.js"
+import HomeScreen from "./screens/HomeScreen.js"
 import { AppProvider } from "./context.js"
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import QrScanOutput from "./components/QrScanOutput.js";
-import About from "./components/About.js";
+import QrScanOutput from "./screens/QrScanOutput.js";
+import About from "./screens/About.js";
 
 
 

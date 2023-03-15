@@ -2,9 +2,11 @@ import React, { useEffect } from 'react'
 import { Camera } from 'expo-camera';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet,View,BackHandler,Alert,ActivityIndicator } from 'react-native';
-import DefaultCamera from './DefaultCameraView';
-import Navbar from './Navbar';
-import CameraView from './CameraView';
+import DefaultCamera from '../components/homeScreenFiles/DefaultCameraView';
+import Navbar from '../components/homeScreenFiles/Navbar';
+import CameraView from '../components/homeScreenFiles/CameraView';
+import { useGlobalContext } from '../context';
+import Sidebar from '../components/homeScreenFiles/Sidebar';
 
 
 // home screen
@@ -13,7 +15,7 @@ const HomeScreen = ({ navigation })=> {
 
 	// state value to store camera permission status and the func to request that permission
 	const [permission, requestPermission] = Camera.useCameraPermissions();
-
+	const {showSidebar} = useGlobalContext()
 
 
 	// function to handle exit app action
@@ -58,7 +60,6 @@ const HomeScreen = ({ navigation })=> {
 			<>
 				{/* renders a spinning loading icon  */}
 				<ActivityIndicator size="large" style={styles.loadingContainer} color="#ffffff"/>
-
 				<StatusBar style='dark'/>
 			</>
 		)
@@ -70,6 +71,8 @@ const HomeScreen = ({ navigation })=> {
 	if (!permission.granted) {	
 		return (
 			<View style={styles.appContainer}>
+
+				{showSidebar && <Sidebar />}
 
 				{/* navbar  */}
 				<Navbar exitApp={exitApp}/>
@@ -86,6 +89,8 @@ const HomeScreen = ({ navigation })=> {
 	// camera permissiom provided
 	return (
 		<View style={styles.appContainer}>
+
+			{showSidebar && <Sidebar />}
 
 			{/* navbar  */}
 			<Navbar exitApp={exitApp} navigation={navigation}/>

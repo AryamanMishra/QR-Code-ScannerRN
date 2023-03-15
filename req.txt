@@ -1,1 +1,2 @@
 get qr code itself
+fix sidebar

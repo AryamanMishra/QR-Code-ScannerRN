@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Camera,CameraType } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { StyleSheet,View,Text,Vibration } from 'react-native';
-import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../../context';
 import { useIsFocused } from '@react-navigation/native';
-import QrCodeContainer from './QrCodeContainer';
+import QrCodeContainer from '../outputFiles/QrCodeContainer';
 import ZoomControlSlider from './ZoomControlSlider';
 
 

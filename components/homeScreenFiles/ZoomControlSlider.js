@@ -1,7 +1,7 @@
 import React from 'react'
 import { View,StyleSheet } from 'react-native'
 import Slider from '@react-native-community/slider';
-import zoomInImage from '../assets/zoomIcon.png'
+import zoomInImage from '../../assets/zoomIcon.png'
 
 
 // provides zoom function in form of a slider
