@@ -25,7 +25,7 @@ const OutputNavbar = ({ navigation })=> {
                         name='arrow-left'
                         size={30}
                         color='white'
-                        style={{marginTop:5}}
+                        style={{marginTop:5}}     
                     />
                 </Pressable> 
                 <Text style={styles.outputNavbarText}>Output</Text>
@@ -55,7 +55,7 @@ const OutputNavbar = ({ navigation })=> {
 // styles
 const styles = StyleSheet.create({
     outputNavbarContainer : {
-        flex:1.1,
+        flex:1.05,
         backgroundColor:'#121917',
         width:'100%',
         justifyContent:'space-between',

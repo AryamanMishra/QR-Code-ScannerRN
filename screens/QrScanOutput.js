@@ -1,8 +1,8 @@
 import React from 'react'
 import { View,Text,StyleSheet, Linking } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
-import OutputNavbar from '../components/outputFiles/OutputNavbar.js';
-import OutputUtilityBar from '../components/outputFiles/OutputUtilityBar';
+import OutputNavbar from '../components/outputScreenFiles/OutputNavbar.js';
+import OutputUtilityBar from '../components/outputScreenFiles/OutputUtilityBar';
 
 
 // qr output screen

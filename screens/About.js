@@ -37,7 +37,7 @@ const About = ({ navigation })=> {
                         >
                             <ArrowLeft 
                                 name='arrow-left'
-                                size={30}
+                                size={32}
                                 color='white'
                                 style={{marginTop:5}}
                             />
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         flex:1 // main div covers whole page
     },
     aboutPageNav : {
-        flex:1.05,
+        flex:1,
         backgroundColor:'#121917',
         width:'100%',
         justifyContent:'space-between',
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     
     versionInfo : {
         position:'absolute',
-        top:'91%',
+        top:'92%',
         left:'23%',
         flexDirection:'row',
         gap:15

@@ -5,8 +5,6 @@ import { StyleSheet,View,BackHandler,Alert,ActivityIndicator } from 'react-nativ
 import DefaultCamera from '../components/homeScreenFiles/DefaultCameraView';
 import Navbar from '../components/homeScreenFiles/Navbar';
 import CameraView from '../components/homeScreenFiles/CameraView';
-import { useGlobalContext } from '../context';
-import Sidebar from '../components/homeScreenFiles/Sidebar';
 
 
 // home screen
@@ -15,7 +13,6 @@ const HomeScreen = ({ navigation })=> {
 
 	// state value to store camera permission status and the func to request that permission
 	const [permission, requestPermission] = Camera.useCameraPermissions();
-	const {showSidebar} = useGlobalContext()
 
 
 	// function to handle exit app action
@@ -72,8 +69,6 @@ const HomeScreen = ({ navigation })=> {
 		return (
 			<View style={styles.appContainer}>
 
-				{showSidebar && <Sidebar />}
-
 				{/* navbar  */}
 				<Navbar exitApp={exitApp}/>
 
@@ -89,8 +84,6 @@ const HomeScreen = ({ navigation })=> {
 	// camera permissiom provided
 	return (
 		<View style={styles.appContainer}>
-
-			{showSidebar && <Sidebar />}
 
 			{/* navbar  */}
 			<Navbar exitApp={exitApp} navigation={navigation}/>

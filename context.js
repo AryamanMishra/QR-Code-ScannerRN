@@ -10,15 +10,13 @@ export const AppProvider = ({children})=> {
     // state variable to handle flashlight 
     const [isFlashLightOn,setIsFlashLightOn] = useState(false)
 
-    const [showSidebar,setShowSidebar] = useState(false)
+    const [historyList,setHistoryList] = useState([])
 
-    const closeSidebar = ()=> {
-        setShowSidebar(false)
+
+    const clearHistoryList=  ()=> {
+        setHistoryList([])
     }
 
-    const openSidebar = ()=> {
-        setShowSidebar(true)
-    }
     // toggle flashlight
     const toggleFlashLight = ()=> {
         setIsFlashLightOn(!isFlashLightOn)
@@ -29,9 +27,9 @@ export const AppProvider = ({children})=> {
             value={{
                 isFlashLightOn,
                 toggleFlashLight,
-                showSidebar,
-                openSidebar,
-                closeSidebar
+                historyList,
+                setHistoryList,
+                clearHistoryList
             }}
         >
             {children}

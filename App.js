@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import QrScanOutput from "./screens/QrScanOutput.js";
 import About from "./screens/About.js";
+import HistoryScreen from "./screens/HistoryScreen.js";
 
 
 
@@ -36,6 +37,9 @@ const App = ()=> {
 					<Stack.Screen 
 						name="HomeScreen" 
 						component={HomeScreen} 
+						options={{
+							animation:'fade'
+						}}
 					/>
 
 					{/* output screen  */}
@@ -53,6 +57,15 @@ const App = ()=> {
 						component={About}
 						options={{
 							animation:'slide_from_right'
+						}}
+					/>
+
+					{/* history screen  */}
+					<Stack.Screen
+						name="HistoryScreen"
+						component={HistoryScreen}
+						options={{
+							animation:'slide_from_bottom'
 						}}
 					/>
 				</Stack.Navigator>

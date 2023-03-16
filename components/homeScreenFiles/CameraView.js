@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Camera,CameraType } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { StyleSheet,View,Text,Vibration } from 'react-native';
 import { useGlobalContext } from '../../context';
 import { useIsFocused } from '@react-navigation/native';
-import QrCodeContainer from '../outputFiles/QrCodeContainer';
+import QrCodeContainer from '../outputScreenFiles/QrCodeContainer';
 import ZoomControlSlider from './ZoomControlSlider';
+import { getCurrentDate,getCurrentTime } from '../../utils/getDT';
+import { getData,setData } from '../../utils/handleAsyncStorage';
+import uuid from 'react-native-uuid';
 
 
 
@@ -13,7 +16,7 @@ const CameraView = ({ navigation })=> {
 
 
     // using global context
-    const {isFlashLightOn} = useGlobalContext()
+    const {isFlashLightOn,historyList,setHistoryList} = useGlobalContext()
 
     // ensures that camera stays on even after screen navigation
     const isFocused = useIsFocused();
@@ -22,32 +25,21 @@ const CameraView = ({ navigation })=> {
     const [zoom,setZoom] = useState(0)
 
 
-    // method to get current date using Date()
-    const getCurrentDate = ()=> {
-        let date = new Date().getDate();
-        let month = new Date().getMonth() + 1;
-        let year = new Date().getFullYear();
-
-        // format: dd-mm-yy
-        return date + '-' + month + '-' + year;
-    }
+    
 
 
-    // method to get current time using Date()
-    const getCurrentTime = ()=> {
-        let hours = new Date().getHours()
-        let minutes = new Date().getMinutes()
 
-        // check if minutes is a single digit 
-        // if single digit append a 0 in front of it
-        if (minutes / 10 < 1) {
-            minutes = minutes.toString()
-            minutes = '0'+  minutes
-        }
-        return hours + ':' + minutes
-    }
+    useEffect(()=> {
+        getData(historyList,setHistoryList)
+    },[])
 
 
+    useEffect(()=> {
+        setData(historyList)
+    },[historyList])
+
+
+    
     // to handle qr scan result
     const handleqrCodeScan = ({ data,type })=> {
         let currentDate = getCurrentDate()
@@ -66,6 +58,10 @@ const CameraView = ({ navigation })=> {
         // vibration on scan complete
         Vibration.vibrate(100)
 
+        const id = uuid.v4()
+        const newHistoryListItem = {id,data,type,currentDate,currentTime,amOrPm}
+        setHistoryList([newHistoryListItem,...historyList])
+
 
         // navigate screen to output page after 100ms delay
         setTimeout(()=> {
@@ -79,6 +75,7 @@ const CameraView = ({ navigation })=> {
         },100)
         
     }
+
 
     return (
         <View style={styles.cameraContainer}>
@@ -133,7 +130,7 @@ const styles = StyleSheet.create({
     cameraContainer : {
         flex:4,
         justifyContent:'center',
-        borderTopWidth:0.6,
+        borderTopWidth:0.5,
         borderTopColor:'grey',
     },
     camera: {
