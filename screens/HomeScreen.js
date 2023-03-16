@@ -5,7 +5,7 @@ import { StyleSheet,View,BackHandler,Alert,ActivityIndicator } from 'react-nativ
 import DefaultCamera from '../components/homeScreenFiles/DefaultCameraView';
 import Navbar from '../components/homeScreenFiles/Navbar';
 import CameraView from '../components/homeScreenFiles/CameraView';
-
+import { useGlobalContext } from '../context';
 
 // home screen
 const HomeScreen = ({ navigation })=> {

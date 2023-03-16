@@ -26,12 +26,12 @@ export const AppProvider = ({children})=> {
         Alert.alert('Clear history?', 'All scan history would be cleared',
             [
                 {
-                    text:'Yes',
-                    onPress:()=>showToastAndClearHistory()
-                },
-                {
                     text:'No',
                     style:'cancel'
+                },
+                {
+                    text:'Yes',
+                    onPress:()=>showToastAndClearHistory()
                 }
             ],
             {

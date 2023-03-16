@@ -1,5 +1,5 @@
-import React from 'react'
-import { Text, View,StyleSheet, Pressable } from 'react-native'
+import React, {useEffect} from 'react'
+import { Text, View,StyleSheet, Pressable,BackHandler } from 'react-native'
 import ArrowLeft from 'react-native-vector-icons/Octicons'
 import AboutIcon from 'react-native-vector-icons/Fontisto'
 import { useGlobalContext } from '../../context'
@@ -9,14 +9,23 @@ import { useGlobalContext } from '../../context'
 // navbar of output page
 const OutputNavbar = ({ navigation })=> {
 
-    const {scanned,setScanned} = useGlobalContext()
+    const {setScanned} = useGlobalContext()
 
     const handleBackButton = ()=> {
         setScanned(false)
         setTimeout(()=> {
             navigation.navigate('HomeScreen') 
-        },90)  
+        },100)  
     }
+
+    useEffect(()=> {
+		const backHandler = BackHandler.addEventListener(
+		   'hardwareBackPress',
+			handleBackButton
+		)
+		return () => backHandler.remove();
+	},[])
+
     return (
         <View style={styles.outputNavbarContainer}>
             <View style={styles.innerWrapper}>
