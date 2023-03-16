@@ -11,9 +11,7 @@ const HistoryScreen = ({ navigation })=> {
     return (
         <View style={styles.historyScreen}>
             <HistoryScreenNav navigation={navigation}/>
-            <HistoryScreenContent historyList={historyList}/>
-           
-            
+            <HistoryScreenContent historyList={historyList}/> 
         </View>
     )
 }

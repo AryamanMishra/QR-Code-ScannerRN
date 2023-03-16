@@ -20,7 +20,7 @@ const HistoryScreenContent = ({ })=> {
                     />
                 )
                 : (
-                    <View style={{flex:1,alignItems:'center',marginTop:70}}>
+                    <View style={{flex:1,alignItems:'center',marginTop:50}}>
                         <Text style={styles.text}>No Recent Scans</Text>
                     </View>
                 )
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     },
     text : {
         color:'white',
-        fontSize:18
+        fontSize:20
     },
     
 })

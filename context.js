@@ -1,5 +1,5 @@
 import React,{useContext,useState} from 'react'
-import { Alert } from 'react-native'
+import { Alert,ToastAndroid } from 'react-native'
 
 const AppContext = React.createContext()
 
@@ -16,12 +16,18 @@ export const AppProvider = ({children})=> {
 
     const [scanned, setScanned] = useState(false);
 
+
+    const showToastAndClearHistory = ()=> {
+        setHistoryList([])
+        ToastAndroid.show('Cleared History', ToastAndroid.SHORT)
+    }
+    
     const clearHistoryList = ()=> {
         Alert.alert('Clear history?', 'All scan history would be cleared',
             [
                 {
                     text:'Yes',
-                    onPress:()=>setHistoryList([])
+                    onPress:()=>showToastAndClearHistory()
                 },
                 {
                     text:'No',

@@ -52,7 +52,7 @@ const HistoryScreenNav = ({ navigation })=> {
 
 const styles = StyleSheet.create({
     navContainer : {
-        flex:1,
+        flex:0.97,
         backgroundColor:'#121917',
         width:'100%',
         justifyContent:'space-between',
