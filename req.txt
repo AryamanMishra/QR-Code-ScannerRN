@@ -1,1 +1,2 @@
 get qr code itself
+add styling on hist page

@@ -10,7 +10,7 @@ export const setData = async(historyList)=> {
     if (historyList.length === 0) {
         try {
             await AsyncStorage.setItem('@historyList', JSON.stringify([])).then((value)=> {
-                // console.log('set me',historyList)
+                // console.log('empty list')
             })
         } 
         catch (error) {
@@ -37,6 +37,7 @@ export const getData = async(historyList,setHistoryList)=> {
 
     try {
         await AsyncStorage.getItem('@historyList').then((value)=> {
+            // console.log('val',value)
             if (value !== null) {
                 setHistoryList(JSON.parse(value))
             }
@@ -44,7 +45,6 @@ export const getData = async(historyList,setHistoryList)=> {
                 setHistoryList([])
             }
         })
-        console.log('get me',historyList)
     }
     catch(err){
         console.log('Error in getItem',err)

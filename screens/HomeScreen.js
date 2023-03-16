@@ -57,7 +57,7 @@ const HomeScreen = ({ navigation })=> {
 			<>
 				{/* renders a spinning loading icon  */}
 				<ActivityIndicator size="large" style={styles.loadingContainer} color="#ffffff"/>
-				<StatusBar style='dark'/>
+				<StatusBar style='light'/>
 			</>
 		)
 		

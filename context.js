@@ -13,7 +13,9 @@ export const AppProvider = ({children})=> {
     const [historyList,setHistoryList] = useState([])
 
 
-    const clearHistoryList=  ()=> {
+    const [scanned, setScanned] = useState(false);
+
+    const clearHistoryList = ()=> {
         setHistoryList([])
     }
 
@@ -29,7 +31,9 @@ export const AppProvider = ({children})=> {
                 toggleFlashLight,
                 historyList,
                 setHistoryList,
-                clearHistoryList
+                clearHistoryList,
+                scanned,
+                setScanned
             }}
         >
             {children}

@@ -1,9 +1,12 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, Text } from 'react-native'
+import { StyleSheet, View, FlatList, Text, TouchableOpacity } from 'react-native'
+import { useGlobalContext } from '../../context'
 import HistoryScreenListItem from './HistoryScreenListItem'
 
 
 const HistoryScreenContent = ({ historyList })=> {
+
+    // const {clearHistoryList} = useGlobalContext()
     return (
         <View style={styles.mainContent}>
             {
@@ -17,12 +20,11 @@ const HistoryScreenContent = ({ historyList })=> {
                     />
                 )
                 : (
-                    <View style={{flex:1,alignItems:'center',marginTop:100}}>
+                    <View style={{flex:1,alignItems:'center',marginTop:70}}>
                         <Text style={styles.text}>No Recent Scans</Text>
                     </View>
                 )
             }
-            
         </View>
     )
 }
@@ -31,11 +33,13 @@ const HistoryScreenContent = ({ historyList })=> {
 const styles = StyleSheet.create({
     mainContent : {
         flex:6,
-        backgroundColor:'black'
+        backgroundColor:'black',
+        justifyContent:'center',
+        alignItems:'center'
     },
     text : {
         color:'white',
-        fontSize:20
-    }
+        fontSize:18
+    },
 })
 export default HistoryScreenContent

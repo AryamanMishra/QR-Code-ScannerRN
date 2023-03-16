@@ -2,13 +2,21 @@ import React from 'react'
 import { Text, View,StyleSheet, Pressable } from 'react-native'
 import ArrowLeft from 'react-native-vector-icons/Octicons'
 import AboutIcon from 'react-native-vector-icons/Fontisto'
+import { useGlobalContext } from '../../context'
 
 
 
 // navbar of output page
 const OutputNavbar = ({ navigation })=> {
 
+    const {scanned,setScanned} = useGlobalContext()
 
+    const handleBackButton = ()=> {
+        setScanned(false)
+        setTimeout(()=> {
+            navigation.navigate('HomeScreen') 
+        },90)  
+    }
     return (
         <View style={styles.outputNavbarContainer}>
             <View style={styles.innerWrapper}>
@@ -16,9 +24,7 @@ const OutputNavbar = ({ navigation })=> {
                 {/* back navigation icon  */}
                 <Pressable
                     android_ripple={{color:'grey',borderless:true,radius:30}}
-                    onPress={()=> {
-                            navigation.navigate('HomeScreen') 
-                        }}
+                    onPress={handleBackButton}
                 >
                     {/* react native left arrow icon  */}
                     <ArrowLeft 

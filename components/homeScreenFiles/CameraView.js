@@ -25,7 +25,7 @@ const CameraView = ({ navigation })=> {
     const [zoom,setZoom] = useState(0)
 
 
-    
+    const {scanned,setScanned} = useGlobalContext()    
 
 
 
@@ -42,6 +42,7 @@ const CameraView = ({ navigation })=> {
     
     // to handle qr scan result
     const handleqrCodeScan = ({ data,type })=> {
+        setScanned(true)
         let currentDate = getCurrentDate()
         let currentTime = getCurrentTime()
 
@@ -70,10 +71,9 @@ const CameraView = ({ navigation })=> {
                 type,
                 currentDate,
                 currentTime,
-                amOrPm
+                amOrPm,
             })
-        },100)
-        
+        },90)
     }
 
 
@@ -90,7 +90,7 @@ const CameraView = ({ navigation })=> {
                     }}
 
                     // handles output 
-                    onBarCodeScanned={handleqrCodeScan}
+                    onBarCodeScanned={scanned ? undefined : handleqrCodeScan}
 
                     // handles flashlight
                     flashMode={isFlashLightOn ? Camera.Constants.FlashMode.torch : Camera.Constants.FlashMode.off}
