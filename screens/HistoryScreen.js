@@ -4,6 +4,7 @@ import HistoryScreenContent from '../components/historyScreenFiles/HistoryScreen
 import HistoryScreenNav from '../components/historyScreenFiles/HistoryScreenNav'
 import { useGlobalContext } from '../context'
 
+
 const HistoryScreen = ({ navigation })=> {
 
     const { historyList } = useGlobalContext()

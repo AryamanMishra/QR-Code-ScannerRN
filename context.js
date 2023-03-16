@@ -1,4 +1,5 @@
 import React,{useContext,useState} from 'react'
+import { Alert } from 'react-native'
 
 const AppContext = React.createContext()
 
@@ -16,7 +17,21 @@ export const AppProvider = ({children})=> {
     const [scanned, setScanned] = useState(false);
 
     const clearHistoryList = ()=> {
-        setHistoryList([])
+        Alert.alert('Clear history?', 'All scan history would be cleared',
+            [
+                {
+                    text:'Yes',
+                    onPress:()=>setHistoryList([])
+                },
+                {
+                    text:'No',
+                    style:'cancel'
+                }
+            ],
+            {
+                cancelable: true
+            }
+        )  
     }
 
     // toggle flashlight

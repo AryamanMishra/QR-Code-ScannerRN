@@ -1,10 +1,13 @@
 import React from 'react'
 import {View,Text,Pressable, StyleSheet} from 'react-native'
 import ArrowLeft from 'react-native-vector-icons/Octicons'
-
-
+import TrashIcon from 'react-native-vector-icons/Feather'
+import { useGlobalContext } from '../../context'
 
 const HistoryScreenNav = ({ navigation })=> {
+
+    const {historyList,clearHistoryList} = useGlobalContext()
+
     return (
         <View style={styles.navContainer}>
             <View style={styles.innerWrapper}>
@@ -26,6 +29,22 @@ const HistoryScreenNav = ({ navigation })=> {
                 </Pressable> 
                 <Text style={styles.navText}>History</Text>
             </View>
+            {
+                historyList.length !== 0 && 
+                <View style={styles.clearHistoryButton}>
+                    <Pressable 
+                        android_ripple={{color:'grey',borderless:true,radius:30}}   
+                        onPress={clearHistoryList} 
+                    >
+                    <TrashIcon 
+                            name='trash-2'
+                            size={25}
+                            color='white'
+                        />
+                    </Pressable> 
+                </View>
+            }
+            
         </View>
     )
 }
@@ -39,12 +58,13 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         borderBottomWidth:0.5,
         borderBottomColor:'grey',
-        flexDirection:'row'
+        flexDirection:'row',
+        alignItems:'center'
     },
     innerWrapper : {
         alignItems:'center',
-        marginTop:38,
-        marginLeft:30,
+        marginTop:35,
+        marginLeft:27,
         flexDirection:'row',
         gap:30, 
     },
@@ -52,6 +72,10 @@ const styles = StyleSheet.create({
         color:'white',
         fontSize:21,
         letterSpacing:0.8
+    },
+    clearHistoryButton : {
+        marginTop:37,
+        marginRight:32,
     },
 })
 export default HistoryScreenNav

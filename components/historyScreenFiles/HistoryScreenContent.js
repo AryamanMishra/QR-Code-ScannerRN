@@ -4,9 +4,9 @@ import { useGlobalContext } from '../../context'
 import HistoryScreenListItem from './HistoryScreenListItem'
 
 
-const HistoryScreenContent = ({ historyList })=> {
+const HistoryScreenContent = ({ })=> {
 
-    // const {clearHistoryList} = useGlobalContext()
+    const {historyList} = useGlobalContext()
     return (
         <View style={styles.mainContent}>
             {
@@ -25,6 +25,7 @@ const HistoryScreenContent = ({ historyList })=> {
                     </View>
                 )
             }
+            
         </View>
     )
 }
@@ -41,5 +42,6 @@ const styles = StyleSheet.create({
         color:'white',
         fontSize:18
     },
+    
 })
 export default HistoryScreenContent

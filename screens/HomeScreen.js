@@ -34,7 +34,10 @@ const HomeScreen = ({ navigation })=> {
 					text:'Yes',
 					onPress:()=> BackHandler.exitApp()
 				}
-			]
+			],
+			{
+                cancelable: true
+            }
 		)
 		return true
 	}
