@@ -6,13 +6,23 @@ import HistoryScreenListItem from './HistoryScreenListItem'
 const HistoryScreenContent = ({ historyList })=> {
     return (
         <View style={styles.mainContent}>
-            <FlatList
-                
-                data={historyList}
-                keyExtractor={item => item.id}
-                renderItem={({item}) => <HistoryScreenListItem item={item}/>}
-            >
-            </FlatList>
+            {
+                historyList.length !== 0 ? (
+                    <FlatList
+                    data={historyList}
+                    keyExtractor={(item) => {
+                        return item.id;
+                    }}
+                    renderItem={({item}) => <HistoryScreenListItem item={item}/>}
+                    />
+                )
+                : (
+                    <View style={{flex:1,alignItems:'center',marginTop:100}}>
+                        <Text style={styles.text}>No Recent Scans</Text>
+                    </View>
+                )
+            }
+            
         </View>
     )
 }
@@ -23,11 +33,9 @@ const styles = StyleSheet.create({
         flex:6,
         backgroundColor:'black'
     },
-    historyList : {
-
-    },
-    historyItem : {
-
+    text : {
+        color:'white',
+        fontSize:20
     }
 })
 export default HistoryScreenContent

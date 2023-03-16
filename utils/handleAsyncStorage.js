@@ -1,11 +1,16 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
+
+
+
 export const setData = async(historyList)=> {
+
+
     if (historyList.length === 0) {
         try {
             await AsyncStorage.setItem('@historyList', JSON.stringify([])).then((value)=> {
-                // console.log(historyList)
+                // console.log('set me',historyList)
             })
         } 
         catch (error) {
@@ -15,7 +20,7 @@ export const setData = async(historyList)=> {
     else {
         try {
             await AsyncStorage.setItem('@historyList',JSON.stringify(historyList)).then((value)=> {
-                // console.log(historyList)
+                // console.log('set me non zero',historyList)
             })
         } 
         catch (error) {
@@ -29,6 +34,7 @@ export const setData = async(historyList)=> {
 
 
 export const getData = async(historyList,setHistoryList)=> {
+
     try {
         await AsyncStorage.getItem('@historyList').then((value)=> {
             if (value !== null) {
@@ -38,7 +44,7 @@ export const getData = async(historyList,setHistoryList)=> {
                 setHistoryList([])
             }
         })
-        console.log(historyList)
+        console.log('get me',historyList)
     }
     catch(err){
         console.log('Error in getItem',err)
