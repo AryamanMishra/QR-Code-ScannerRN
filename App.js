@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import QrScanOutput from "./screens/QrScanOutput.js";
 import About from "./screens/About.js";
 import HistoryScreen from "./screens/HistoryScreen.js";
-
+import HistoryScreenOnSelectItem from './screens/HistoryScreenOnSelectItem'
 
 
 // creating stack navigator to handle navigation between screens
@@ -66,6 +66,14 @@ const App = ()=> {
 						component={HistoryScreen}
 						options={{
 							animation:'slide_from_bottom'
+						}}
+					/>
+
+					<Stack.Screen
+						name="HistoryScreenOnSelect"
+						component={HistoryScreenOnSelectItem}
+						options={{
+							animation:'none'
 						}}
 					/>
 				</Stack.Navigator>

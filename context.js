@@ -16,7 +16,10 @@ export const AppProvider = ({children})=> {
 
     const [scanned, setScanned] = useState(false);
 
-    const [showDeleteItemButtonOnLongPress,setShowDeleteItemButtonOnLongPress] = useState(false)
+
+    const deleteItem = (id)=> {
+        setHistoryList(historyList.filter((item)=> item.id !== id))
+    }
 
     const showToastAndClearHistory = ()=> {
         setHistoryList([])
@@ -56,8 +59,7 @@ export const AppProvider = ({children})=> {
                 clearHistoryList,
                 scanned,
                 setScanned,
-                showDeleteItemButtonOnLongPress,
-                setShowDeleteItemButtonOnLongPress,
+                deleteItem
             }}
         >
             {children}

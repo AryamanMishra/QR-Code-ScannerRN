@@ -2,18 +2,14 @@ import React from 'react'
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
 
 
-const HistoryScreenListItem = ({item,navigation})=> {
+const HistoryScreenListItem = ({item,route})=> {
 
-    const handleLongPress = (id)=> {
-        navigation.navigate('HistoryScreenOnSelect', {
-            id
-        })
+    const itemProps = {
+        style:route.params.id === item.id ? styles.selectItemView : styles.itemView
     }
-
     return (
         <TouchableHighlight
-           style={styles.itemView}
-           onLongPress={()=>handleLongPress(item.id)}
+           {...itemProps}
         >
             <View>
                 <Text style={styles.text}>{item.data}</Text>
@@ -23,6 +19,13 @@ const HistoryScreenListItem = ({item,navigation})=> {
 }
 
 const styles = StyleSheet.create({
+    selectItemView : {
+        borderWidth:1,
+        borderColor:'white',
+        backgroundColor:'rgba(255,255,255,0.6)',
+        margin:20,
+        padding:15
+    },
     itemView : {
         borderWidth:1,
         borderColor:'white',

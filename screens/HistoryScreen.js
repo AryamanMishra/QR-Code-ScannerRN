@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet,View } from 'react-native'
 import HistoryScreenContent from '../components/historyScreenFiles/HistoryScreenContent'
 import HistoryScreenNav from '../components/historyScreenFiles/HistoryScreenNav'
 import { useGlobalContext } from '../context'
@@ -11,7 +11,7 @@ const HistoryScreen = ({ navigation })=> {
     return (
         <View style={styles.historyScreen}>
             <HistoryScreenNav navigation={navigation}/>
-            <HistoryScreenContent historyList={historyList}/> 
+            <HistoryScreenContent historyList={historyList} navigation={navigation} /> 
         </View>
     )
 }

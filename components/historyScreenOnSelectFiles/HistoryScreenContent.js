@@ -1,13 +1,12 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, Text,Pressable } from 'react-native'
+import { StyleSheet, View, FlatList, Text } from 'react-native'
 import { useGlobalContext } from '../../context'
 import HistoryScreenListItem from './HistoryScreenListItem'
-import TrashIcon from 'react-native-vector-icons/Feather'
 
 
-const HistoryScreenContent = ({ navigation })=> {
+const HistoryScreenContent = ({ route })=> {
 
-    const {historyList,clearHistoryList} = useGlobalContext()
+    const { historyList } = useGlobalContext()
     return (
         <View style={styles.mainContent}>
             {
@@ -18,7 +17,7 @@ const HistoryScreenContent = ({ navigation })=> {
                     keyExtractor={(item) => {
                         return item.id;
                     }}
-                    renderItem={({item}) => <HistoryScreenListItem item={item} navigation={navigation}/>}
+                    renderItem={({item}) => <HistoryScreenListItem item={item} route={route}/>}
                     />
                 )
                 : (
@@ -26,7 +25,10 @@ const HistoryScreenContent = ({ navigation })=> {
                         <Text style={styles.text}>No Recent Scans</Text>
                     </View>
                 )
-            }   
+            }  
+            <View 
+                style={styles.clearHistoryButton}>
+            </View>
         </View>
     )
 }
@@ -43,6 +45,9 @@ const styles = StyleSheet.create({
         color:'white',
         fontSize:20
     },
-    
+    clearHistoryButton : {
+        width:'35%',
+        height:'10%'
+    },
 })
 export default HistoryScreenContent
