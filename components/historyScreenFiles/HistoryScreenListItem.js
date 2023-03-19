@@ -7,7 +7,7 @@ const HistoryScreenListItem = ({item})=> {
 
     const [isPressed,setIsPressed] = useState(false)
 
-    const {showDeleteItemButtonOnLongPress,setShowDeleteItemButtonOnLongPress} = useGlobalContext()
+    const {setShowDeleteItemButtonOnLongPress} = useGlobalContext()
     const handleLongPress = (id)=> {
         setIsPressed(true)
         setShowDeleteItemButtonOnLongPress(true)
