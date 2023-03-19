@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     viewPressed : {
         borderWidth:1,
         borderColor:'white',
-        backgroundColor:'rgba(255,255,255,0.7)',
+        backgroundColor:'rgba(255,255,255,0.6)',
         margin:20,
         padding:15
     },

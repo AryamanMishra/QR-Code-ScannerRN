@@ -7,7 +7,7 @@ import TrashIcon from 'react-native-vector-icons/Feather'
 
 const HistoryScreenContent = ({ })=> {
 
-    const {historyList,clearHistoryList} = useGlobalContext()
+    const {historyList,clearHistoryList,showDeleteItemButtonOnLongPress} = useGlobalContext()
     return (
         <View style={styles.mainContent}>
             {
@@ -28,7 +28,7 @@ const HistoryScreenContent = ({ })=> {
                 )
             }   
             {
-                historyList.length !== 0 && 
+                historyList.length !== 0 && showDeleteItemButtonOnLongPress === false &&
                 <View 
                 style={styles.clearHistoryButton}>
                     <Pressable 
