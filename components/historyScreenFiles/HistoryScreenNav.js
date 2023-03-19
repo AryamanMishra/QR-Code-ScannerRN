@@ -10,11 +10,11 @@ const HistoryScreenNav = ({ navigation })=> {
     const {historyList,clearHistoryList} = useGlobalContext()
 
     const navProps = {
-        style: styles.navContainer
+        style: stylesofHistoryNav.navContainer
     }
     return (
         <View {...navProps}>
-            <View style={styles.innerWrapper}>
+            <View style={stylesofHistoryNav.innerWrapper}>
 
                 {/* back navigation icon  */}
                 <Pressable
@@ -31,12 +31,12 @@ const HistoryScreenNav = ({ navigation })=> {
                         style={{marginTop:5}}     
                     />
                 </Pressable> 
-                <Text style={styles.navText}>History</Text>
+                <Text style={stylesofHistoryNav.navText}>History</Text>
             </View>
             {
                 historyList.length !== 0 &&
                 <View 
-                style={styles.clearHistoryButton}>
+                style={stylesofHistoryNav.clearHistoryButton}>
                     <Pressable 
                         android_ripple={{color:'grey',borderless:true,radius:84}}   
                         onPress={clearHistoryList} 
@@ -54,7 +54,7 @@ const HistoryScreenNav = ({ navigation })=> {
 }
 
 
-const styles = StyleSheet.create({
+export const stylesofHistoryNav = StyleSheet.create({
     navContainer : {
         flex:0.97,
         backgroundColor:'#121917',

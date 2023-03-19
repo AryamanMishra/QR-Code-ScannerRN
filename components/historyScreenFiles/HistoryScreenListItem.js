@@ -18,24 +18,24 @@ const HistoryScreenListItem = ({item,navigation})=> {
     return (
         <TouchableHighlight
             activeOpacity={0.65} 
-            style={styles.itemView}
+            style={stylesofListItem.itemView}
             onLongPress={()=>handleLongPress(item.id)}
         >
-            <View style={styles.insideItemView}>
-                <Text style={styles.text}>Scan on {item.currentDate} </Text>
-                <Text style={styles.timeText}>{item.currentTime} {item.amOrPm}</Text>
+            <View style={stylesofListItem.insideItemView}>
+                <Text style={stylesofListItem.text}>Scan on {item.currentDate} </Text>
+                <Text style={stylesofListItem.timeText}>{item.currentTime} {item.amOrPm}</Text>
                 <ArrowRight
                     name='long-arrow-right'
                     size={20}
                     color='white'
                 />
-                <Text style={styles.dataText}>{item.data.substring(0,25)}</Text>     
+                <Text style={stylesofListItem.dataText}>{item.data.substring(0,25)}</Text>     
             </View>
         </TouchableHighlight>
     )
 }
 
-const styles = StyleSheet.create({
+export const stylesofListItem = StyleSheet.create({
     itemView : {
         borderWidth:0.3,
         borderRadius:7,

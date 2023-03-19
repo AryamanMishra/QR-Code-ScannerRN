@@ -3,7 +3,7 @@ import {View,Text,Pressable, StyleSheet,ToastAndroid} from 'react-native'
 import ArrowLeft from 'react-native-vector-icons/Octicons'
 import TrashIcon from 'react-native-vector-icons/Feather'
 import { useGlobalContext } from '../../context'
-
+import {stylesofHistoryNav} from '../historyScreenFiles/HistoryScreenNav.js'
 
 const HistoryScreenNav = ({ navigation,route })=> {
 
@@ -22,7 +22,7 @@ const HistoryScreenNav = ({ navigation,route })=> {
     }
     return (
         <View {...navProps}>
-            <View style={styles.innerWrapper}>
+            <View style={stylesofHistoryNav.innerWrapper}>
 
                 {/* back navigation icon  */}
                 <Pressable
@@ -39,7 +39,7 @@ const HistoryScreenNav = ({ navigation,route })=> {
                         style={{marginTop:5}}     
                     />
                 </Pressable> 
-                <Text style={styles.navText}>History</Text>
+                <Text style={stylesofHistoryNav.navText}>History</Text>
             </View>
             <View 
                 {...deleteButtonProps}
@@ -70,18 +70,6 @@ const styles = StyleSheet.create({
         borderBottomColor:'white',
         flexDirection:'row',
         alignItems:'center'
-    },
-    innerWrapper : {
-        alignItems:'center',
-        marginTop:35,
-        marginLeft:27,
-        flexDirection:'row',
-        gap:30, 
-    },
-    navText : {
-        color:'white',
-        fontSize:21,
-        letterSpacing:0.8
     },
     clearHistoryItemButton : {
         paddingHorizontal:15,

@@ -26,9 +26,6 @@ const HistoryScreenContent = ({ route })=> {
                     </View>
                 )
             }  
-            <View 
-                style={styles.clearHistoryButton}>
-            </View>
         </View>
     )
 }
@@ -42,10 +39,6 @@ const styles = StyleSheet.create({
     text : {
         color:'white',
         fontSize:20
-    },
-    clearHistoryButton : {
-        width:'35%',
-        height:'10%'
     },
 })
 export default HistoryScreenContent
