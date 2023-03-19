@@ -1,2 +1,2 @@
 get qr code itself
-add styling on hist page
+add history item detail page
