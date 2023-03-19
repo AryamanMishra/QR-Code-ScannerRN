@@ -7,7 +7,7 @@ import TrashIcon from 'react-native-vector-icons/Feather'
 
 const HistoryScreenContent = ({ navigation })=> {
 
-    const {historyList,clearHistoryList} = useGlobalContext()
+    const {historyList} = useGlobalContext()
     return (
         <View style={styles.mainContent}>
             {
@@ -36,8 +36,6 @@ const styles = StyleSheet.create({
     mainContent : {
         flex:6,
         backgroundColor:'black',
-        justifyContent:'center',
-        alignItems:'center'
     },
     text : {
         color:'white',
