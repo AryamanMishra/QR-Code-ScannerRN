@@ -1,13 +1,12 @@
 import React from 'react'
 import {View,Text,Pressable, StyleSheet} from 'react-native'
 import ArrowLeft from 'react-native-vector-icons/Octicons'
-import TrashIcon from 'react-native-vector-icons/Feather'
 import { useGlobalContext } from '../../context'
+import TrashIcon from 'react-native-vector-icons/Feather'
 
 const HistoryScreenNav = ({ navigation })=> {
 
-    const {historyList,clearHistoryList} = useGlobalContext()
-
+    const {showDeleteItemButtonOnLongPress} = useGlobalContext()
     return (
         <View style={styles.navContainer}>
             <View style={styles.innerWrapper}>
@@ -30,17 +29,18 @@ const HistoryScreenNav = ({ navigation })=> {
                 <Text style={styles.navText}>History</Text>
             </View>
             {
-                historyList.length !== 0 && 
-                <View style={styles.clearHistoryButton}>
+                showDeleteItemButtonOnLongPress && 
+                <View 
+                    style={styles.clearHistoryItemButton}
+                >
                     <Pressable 
-                        android_ripple={{color:'grey',borderless:true,radius:30}}   
-                        onPress={clearHistoryList} 
+                        android_ripple={{color:'grey',borderless:true,radius:52}}   
                     >
                     <TrashIcon 
-                            name='trash-2'
-                            size={25}
-                            color='white'
-                        />
+                        name='trash-2'
+                        size={26}
+                        color='white'
+                    />
                     </Pressable> 
                 </View>
             }
@@ -73,9 +73,13 @@ const styles = StyleSheet.create({
         fontSize:21,
         letterSpacing:0.8
     },
-    clearHistoryButton : {
-        marginTop:37,
-        marginRight:32,
+    clearHistoryItemButton : {
+        marginTop:35,
+        marginRight:30,
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'#121917',
     },
+   
 })
 export default HistoryScreenNav

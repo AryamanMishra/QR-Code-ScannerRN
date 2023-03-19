@@ -16,6 +16,7 @@ export const AppProvider = ({children})=> {
 
     const [scanned, setScanned] = useState(false);
 
+    const [showDeleteItemButtonOnLongPress,setShowDeleteItemButtonOnLongPress] = useState(false)
 
     const showToastAndClearHistory = ()=> {
         setHistoryList([])
@@ -54,7 +55,9 @@ export const AppProvider = ({children})=> {
                 setHistoryList,
                 clearHistoryList,
                 scanned,
-                setScanned
+                setScanned,
+                showDeleteItemButtonOnLongPress,
+                setShowDeleteItemButtonOnLongPress,
             }}
         >
             {children}
