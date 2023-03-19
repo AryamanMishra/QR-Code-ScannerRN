@@ -10,6 +10,12 @@ const HistoryScreenListItem = ({item,navigation})=> {
             id
         })
     }
+
+    const handlePress = ()=> {
+        navigation.navigate('HistoryItemDetail', {
+            item
+        })
+    }
     // data,
     // type,
     // currentDate,
@@ -19,7 +25,8 @@ const HistoryScreenListItem = ({item,navigation})=> {
         <TouchableHighlight
             activeOpacity={0.65} 
             style={stylesofListItem.itemView}
-            onLongPress={()=>handleLongPress(item.id)}
+            onLongPress={()=>handleLongPress(item.id)} 
+            onPress={()=>handlePress()}
         >
             <View style={stylesofListItem.insideItemView}>
                 <Text style={stylesofListItem.text}>Scan on {item.currentDate} </Text>
@@ -40,7 +47,7 @@ export const stylesofListItem = StyleSheet.create({
         borderWidth:0.3,
         borderRadius:7,
         borderColor:'white',
-        backgroundColor:'#304250',
+        backgroundColor:'#254250',
         marginTop:40,
         marginHorizontal:19,
         padding:18,

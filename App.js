@@ -6,6 +6,7 @@ import QrScanOutput from "./screens/QrScanOutput.js";
 import About from "./screens/About.js";
 import HistoryScreen from "./screens/HistoryScreen.js";
 import HistoryScreenOnSelectItem from './screens/HistoryScreenOnSelectItem'
+import HistoryItemDetail from "./screens/HistoryItemDetail.js";
 
 
 // creating stack navigator to handle navigation between screens
@@ -74,6 +75,13 @@ const App = ()=> {
 						component={HistoryScreenOnSelectItem}
 						options={{
 							animation:'none'
+						}}
+					/>
+					<Stack.Screen
+						name="HistoryItemDetail"
+						component={HistoryItemDetail}
+						options={{
+							animation:'slide_from_right'
 						}}
 					/>
 				</Stack.Navigator>
