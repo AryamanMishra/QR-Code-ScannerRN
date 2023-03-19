@@ -1,2 +1,2 @@
 get qr code itself
-add history item detail page
+add item delete button on history item detail page
