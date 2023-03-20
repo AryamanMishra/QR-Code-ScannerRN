@@ -1,2 +1,3 @@
 get qr code itself
-add item delete button on history item detail page
+set local context
+re build
