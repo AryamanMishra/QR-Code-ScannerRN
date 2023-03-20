@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         marginTop:40,
         marginHorizontal:19,
         padding:18,
-        backgroundColor:'rgba(255,255,255,0.7)',
+        backgroundColor:'rgba(0,10,200,0.95)',
     }
 })
 

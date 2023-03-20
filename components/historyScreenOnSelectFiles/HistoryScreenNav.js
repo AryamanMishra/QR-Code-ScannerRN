@@ -50,7 +50,7 @@ const HistoryScreenNav = ({ navigation,route })=> {
                 >
                 <TrashIcon 
                     name='trash-2'
-                    size={23}
+                    size={25}
                     color='white'
                 />
                 </Pressable> 
@@ -63,7 +63,7 @@ const HistoryScreenNav = ({ navigation,route })=> {
 const styles = StyleSheet.create({
     navContainer : {
         flex:0.97,
-        backgroundColor:'rgb(0,100,100)',
+        backgroundColor:'rgb(0,130,120)',
         width:'100%',
         justifyContent:'space-between',
         borderBottomWidth:0.5,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         marginRight:27,
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:'rgb(0,100,100)',
+        backgroundColor:'rgb(0,130,120)',
     },
 })
 export default HistoryScreenNav

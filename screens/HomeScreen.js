@@ -72,9 +72,6 @@ const HomeScreen = ({ navigation })=> {
 		return (
 			<View style={styles.appContainer}>
 
-				{/* navbar  */}
-				<Navbar exitApp={exitApp}/>
-
 				{/* renders camera icon which asks for camera permission on press  */}
 				<DefaultCamera requestPermission={requestPermission}/>
 
@@ -84,7 +81,7 @@ const HomeScreen = ({ navigation })=> {
 	}
 	
 
-	// camera permissiom provided
+	// camera permission provided
 	return (
 		<View style={styles.appContainer}>
 
