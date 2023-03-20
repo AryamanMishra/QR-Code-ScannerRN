@@ -17,11 +17,11 @@ const ItemNavbar = ({ navigation,currentDate,id })=> {
     const helper = ()=> {
         deleteItem(id)
         navigation.goBack()
-        ToastAndroid.show('Item removed from history', ToastAndroid.SHORT)
+        ToastAndroid.show('Scan removed from history', ToastAndroid.SHORT)
     }
 
     const handleDeleteItemAndNavBack = ()=> {
-        Alert.alert('Delete Item','Are you Sure you want to remove the item from the history?', 
+        Alert.alert('Delete Scan','Are you Sure you want to remove the item from history?', 
             [
                 {
                     text:'No',
@@ -71,7 +71,7 @@ const ItemNavbar = ({ navigation,currentDate,id })=> {
                 >
                 <TrashIcon 
                     name='trash-2'
-                    size={24}
+                    size={25}
                     color='white'
                 />
                 </Pressable> 
@@ -111,10 +111,10 @@ const styles = StyleSheet.create({
         paddingVertical:10,
         borderRadius:50,
         marginTop:40,
-        marginRight:32,
+        marginRight:30,
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:'rgba(100,100,100,0.7)',
+        backgroundColor:'rgba(100,100,100,0.4)',
     },
 })
 
