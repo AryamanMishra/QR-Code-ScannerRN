@@ -26,7 +26,7 @@ const HistoryScreenNav = ({ navigation,route })=> {
 
                 {/* back navigation icon  */}
                 <Pressable
-                    android_ripple={{color:'grey',borderless:true,radius:30}}
+                    android_ripple={{color:'white',borderless:true,radius:28}}
                     onPress={()=> {
                             navigation.goBack() 
                         }}
