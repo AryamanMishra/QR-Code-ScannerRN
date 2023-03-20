@@ -43,7 +43,7 @@ const HistoryScreenNav = ({ navigation })=> {
                     >
                     <TrashIcon 
                         name='trash-2'
-                        size={23}
+                        size={25}
                         color='gold'
                     />
                     </Pressable> 

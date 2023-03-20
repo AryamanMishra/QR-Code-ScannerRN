@@ -1,8 +1,7 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, Text,Pressable } from 'react-native'
+import { StyleSheet, View, FlatList, Text } from 'react-native'
 import { useGlobalContext } from '../../context'
 import HistoryScreenListItem from './HistoryScreenListItem'
-import TrashIcon from 'react-native-vector-icons/Feather'
 
 
 const HistoryScreenContent = ({ navigation })=> {

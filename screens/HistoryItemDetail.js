@@ -5,7 +5,6 @@ import OutputUtilityBar from '../components/outputScreenFiles/OutputUtilityBar';
 import ItemNavbar from '../components/HistoryItemDetailfiles/ItemNavbar.js';
 
 
-
 const HistoryItemDetail = ({ route,navigation })=> {
 
     const { data,type,currentDate,currentTime,amOrPm } = route.params.item
@@ -23,7 +22,7 @@ const HistoryItemDetail = ({ route,navigation })=> {
         <View style={styles.outputContainer}>
 
             {/* navbar  */}
-            <ItemNavbar navigation={navigation} currentDate={currentDate}/>
+            <ItemNavbar navigation={navigation} id={route.params.item.id}currentDate={currentDate}/>
 
             {/* main content  */}
             <View style={styles.outputContent}>
@@ -57,7 +56,7 @@ const HistoryItemDetail = ({ route,navigation })=> {
             <OutputUtilityBar
                 checkURL={checkURL}
             />
-
+            
             <StatusBar style='light'/>
         </View>
     )

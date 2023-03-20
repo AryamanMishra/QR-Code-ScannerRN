@@ -1,16 +1,47 @@
 import React from 'react'
-import { Text, View,StyleSheet, Pressable } from 'react-native'
+import { Text, View,StyleSheet, Pressable,Alert,ToastAndroid } from 'react-native'
 import ArrowLeft from 'react-native-vector-icons/Octicons'
+import TrashIcon from 'react-native-vector-icons/Feather'
+import { useGlobalContext } from '../../context'
+
 
 
 // navbar of output page
-const ItemNavbar = ({ navigation,currentDate })=> {
+const ItemNavbar = ({ navigation,currentDate,id })=> {
 
-
+    const {deleteItem} = useGlobalContext()
     const handleBackButton = ()=> {
         navigation.goBack()
     }
 
+    const helper = ()=> {
+        deleteItem(id)
+        navigation.goBack()
+        ToastAndroid.show('Item removed from history', ToastAndroid.SHORT)
+    }
+
+    const handleDeleteItemAndNavBack = ()=> {
+        Alert.alert('Delete Item','Are you Sure you want to remove the item from the history?', 
+            [
+                {
+                    text:'No',
+                    style:'cancel'
+                },
+                {
+                    text:'Yes',
+                    onPress:()=>helper()
+                }
+            ],
+            {
+                cancelable: true
+            }
+        )
+       
+    }
+
+    const deleteButtonProps = {
+        style: styles.clearItemButton
+    }
 
     return (
         <View style={styles.navContainer}>
@@ -31,7 +62,20 @@ const ItemNavbar = ({ navigation,currentDate })=> {
                 </Pressable> 
                 <Text style={styles.navText}>Scan on {currentDate}</Text>
             </View>
-
+            <View 
+                {...deleteButtonProps}
+            >
+                <Pressable 
+                    android_ripple={{color:'white',borderless:true,radius:52}}  
+                    onPress={handleDeleteItemAndNavBack} 
+                >
+                <TrashIcon 
+                    name='trash-2'
+                    size={24}
+                    color='white'
+                />
+                </Pressable> 
+            </View>
         </View>
     )
 }
@@ -61,6 +105,16 @@ const styles = StyleSheet.create({
         color:'white',
         fontSize:20,
         letterSpacing:0.8
+    },
+    clearItemButton : {
+        paddingHorizontal:10,
+        paddingVertical:10,
+        borderRadius:50,
+        marginTop:40,
+        marginRight:32,
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'rgba(100,100,100,0.7)',
     },
 })
 
