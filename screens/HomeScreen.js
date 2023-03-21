@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Camera } from 'expo-camera';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet,View,BackHandler,Alert,ActivityIndicator } from 'react-native';
@@ -13,6 +13,9 @@ const HomeScreen = ({ navigation })=> {
 	// state value to store camera permission status and the func to request that permission
 	const [permission, requestPermission] = Camera.useCameraPermissions();
 
+	const handlePermission = ()=> {
+		requestPermission()
+	}
 
 	// function to handle exit app action
 	// triggered when hardware back button is pressed on home screen
@@ -72,7 +75,7 @@ const HomeScreen = ({ navigation })=> {
 			<View style={styles.appContainer}>
 
 				{/* renders camera icon which asks for camera permission on press  */}
-				<DefaultCamera onPress={requestPermission}/>
+				<DefaultCamera onPress={handlePermission}/>
 
 				<StatusBar style='light'/>
 			</View>	

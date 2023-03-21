@@ -28,19 +28,20 @@ const DefaultCameraView = ({ onPress })=> {
                 {/* react native camera icon  */}
                 <CameraIcon
                     name='camera'
-                    size={42}
+                    size={40}
                     color='white'
                 >
                 </CameraIcon>
             </TouchableOpacity>
             <View style={styles.downView}>
-                <Text style={styles.textD}>You can always provide permission from app settings directly</Text>
+                <Text style={styles.textD}>You can always provide permission directly from app settings </Text>
                 <TouchableOpacity
+                    style={styles.settingsIcon}
                     onPress={openSettigs}
                 >
                     <SettingsIcon 
                         name='settings'
-                        size={25}
+                        size={27}
                         color='white'
                     />
                 </TouchableOpacity>
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
         color:'grey',
         fontSize:13,
         textAlign:'center'
-    }
+    },
 });
 
 
