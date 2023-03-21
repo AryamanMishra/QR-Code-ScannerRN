@@ -1,10 +1,15 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity, View,Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, View,Text,Linking } from 'react-native';
 import CameraIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import SettingsIcon from 'react-native-vector-icons/Feather'
 
 
 // renders when app is opened for the first time or no camera permission is provided
 const DefaultCameraView = ({ onPress })=> {
+
+    const openSettigs = ()=> {
+        Linking.openSettings()
+    }
 
     return (
         <View style={styles.defaultCameracontainer}>
@@ -28,6 +33,19 @@ const DefaultCameraView = ({ onPress })=> {
                 >
                 </CameraIcon>
             </TouchableOpacity>
+            <View style={styles.downView}>
+                <Text style={styles.textD}>You can always provide permission from app settings directly</Text>
+                <TouchableOpacity
+                    onPress={openSettigs}
+                >
+                    <SettingsIcon 
+                        name='settings'
+                        size={25}
+                        color='white'
+                    />
+                </TouchableOpacity>
+                
+            </View>
         </View>
     );
 }
@@ -50,7 +68,21 @@ const styles = StyleSheet.create({
     },
     text : {
         color:'grey',
-        marginBottom:25
+        marginBottom:25,
+        fontSize:13,
+        textAlign:'center'
+    },
+    downView : {
+        position:'absolute',
+        top:'83%',
+        width:'50%',
+        alignItems:'center',
+        gap:15
+    } ,
+    textD : { 
+        color:'grey',
+        fontSize:13,
+        textAlign:'center'
     }
 });
 
