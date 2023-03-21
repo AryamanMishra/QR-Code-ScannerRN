@@ -13,7 +13,6 @@ export const AppProvider = ({children})=> {
 
     const [historyList,setHistoryList] = useState([])
 
-
     const [scanned, setScanned] = useState(false);
 
 
@@ -59,7 +58,7 @@ export const AppProvider = ({children})=> {
                 clearHistoryList,
                 scanned,
                 setScanned,
-                deleteItem
+                deleteItem,
             }}
         >
             {children}

@@ -1,20 +1,21 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View,Text } from 'react-native';
 import CameraIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 // renders when app is opened for the first time or no camera permission is provided
-const DefaultCameraView = ({ requestPermission })=> {
+const DefaultCameraView = ({ onPress })=> {
 
     return (
         <View style={styles.defaultCameracontainer}>
 
+            <Text style={styles.text}>Please provide camera permission to proceed</Text>
             {/* gives opacity to the icon on press  */}
             <TouchableOpacity
                 style={styles.cameraIcon}
 
                 // request cam permission on press 
-                onPress={requestPermission}
+                onPress={onPress}
 
                 // amount of opacity offered on press. default value is 0.2
                 activeOpacity={0.3}
@@ -39,8 +40,6 @@ const styles = StyleSheet.create({
 		alignItems:'center',
 		justifyContent:'center',
 		flex:1,
-        borderTopWidth:1,
-        borderTopColor:'white',
 	},
     cameraIcon : {
         borderWidth:1,
@@ -48,6 +47,10 @@ const styles = StyleSheet.create({
         borderColor:'white',
         paddingVertical:15,
         paddingHorizontal:15
+    },
+    text : {
+        color:'grey',
+        marginBottom:25
     }
 });
 
