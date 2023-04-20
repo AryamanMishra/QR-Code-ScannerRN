@@ -5,8 +5,12 @@ import TrashIcon from 'react-native-vector-icons/Feather'
 import { useGlobalContext } from '../../context'
 import {stylesofHistoryNav} from '../historyScreenFiles/HistoryScreenNav.js'
 
+
+// gives option to delete one particular item
 const HistoryScreenNav = ({ navigation,route })=> {
 
+
+    // function to delete particular item
     const {deleteItem} = useGlobalContext()
 
     const handleDeleteItemAndScreenNav = ()=> {

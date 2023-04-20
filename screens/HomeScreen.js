@@ -17,6 +17,7 @@ const HomeScreen = ({ navigation })=> {
 		requestPermission()
 	}
 
+
 	// function to handle exit app action
 	// triggered when hardware back button is pressed on home screen
 	// or provided close button is pressed
@@ -112,4 +113,7 @@ const styles = StyleSheet.create({
 		backgroundColor:'#121917'
 	}
 })
+
+
+
 export default HomeScreen

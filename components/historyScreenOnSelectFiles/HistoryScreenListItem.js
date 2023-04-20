@@ -9,6 +9,7 @@ const HistoryScreenListItem = ({item,route})=> {
     const itemProps = {
         activeOpacity:0.65, 
         style:route.params.id === item.id ? styles.selectItemView : stylesofListItem.itemView
+        // different style for selected item
     }
     return (
         <TouchableHighlight

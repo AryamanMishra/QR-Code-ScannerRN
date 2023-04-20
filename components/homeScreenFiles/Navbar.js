@@ -68,7 +68,6 @@ const Navbar = ({ navigation })=> {
 }
 
 
-
 // styles
 const styles = StyleSheet.create({
     navbarContainer : {

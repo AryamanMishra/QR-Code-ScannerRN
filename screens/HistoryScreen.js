@@ -5,9 +5,12 @@ import HistoryScreenNav from '../components/historyScreenFiles/HistoryScreenNav'
 import { useGlobalContext } from '../context'
 
 
+// main history screen
 const HistoryScreen = ({ navigation })=> {
 
+    // history list state variable taken from global context
     const { historyList } = useGlobalContext()
+
     return (
         <View style={styles.historyScreen}>
             <HistoryScreenNav navigation={navigation}/>
@@ -17,6 +20,7 @@ const HistoryScreen = ({ navigation })=> {
 }
 
 
+// styles
 const styles = StyleSheet.create({
     historyScreen : {
         flex:1

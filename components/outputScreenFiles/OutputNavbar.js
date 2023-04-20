@@ -9,15 +9,27 @@ import { useGlobalContext } from '../../context'
 // navbar of output page
 const OutputNavbar = ({ navigation })=> {
 
+
+    // changes scanned value
     const {setScanned} = useGlobalContext()
 
+
+    // handles back press
     const handleBackButton = ()=> {
+
+        // if user press back set scan to false so that the camera activates again to scan qr codes
+        // if scanned is true the scanner do not give any output
         setScanned(false)
+
+        // delayes so that state variable can take place
+        // could have used a useEffect too with a dependency of scanned but this does the job too
         setTimeout(()=> {
             navigation.navigate('HomeScreen') 
         },100)  
     }
 
+    
+    // handles hardware back press
     useEffect(()=> {
 		const backHandler = BackHandler.addEventListener(
 		   'hardwareBackPress',
@@ -26,6 +38,8 @@ const OutputNavbar = ({ navigation })=> {
 		return () => backHandler.remove();
 	},[])
 
+
+    
     return (
         <View style={styles.outputNavbarContainer}>
             <View style={styles.innerWrapper}>

@@ -24,6 +24,7 @@ const OutputUtilityBar = ({ checkURL })=> {
                     <Text style={styles.IconText}>Open Site</Text>
                 </View>
             </TouchableOpacity>
+            
             <TouchableOpacity
                  activeOpacity={0.4}
             >

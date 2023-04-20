@@ -5,9 +5,13 @@ import OutputUtilityBar from '../components/outputScreenFiles/OutputUtilityBar';
 import ItemNavbar from '../components/HistoryItemDetailfiles/ItemNavbar.js';
 
 
+// gives detail of a history item
+// like an output page
 const HistoryItemDetail = ({ route,navigation })=> {
 
     const { data,type,currentDate,currentTime,amOrPm } = route.params.item
+
+    
     // check if URL is valid or not
     const checkURL = ()=> {
 

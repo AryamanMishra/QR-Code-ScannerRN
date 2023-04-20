@@ -4,6 +4,7 @@ import { StyleSheet,View } from 'react-native'
 
 // provides borders inside camera view to focus on the qr shape
 /*
+
    * * *     * * *
    *             *
    *             *

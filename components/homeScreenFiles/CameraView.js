@@ -24,29 +24,36 @@ const CameraView = ({ navigation })=> {
     // set zoom
     const [zoom,setZoom] = useState(0)
 
-
+    // check if camera has scanned to ensure that only one scan output is given
     const {scanned,setScanned} = useGlobalContext()    
 
 
-
+    // get data from async storage
     useEffect(()=> {
         getData(historyList,setHistoryList)
     },[])
 
 
+    // as soon as item is scanned it is added to history list state variable so it changes
+    // this triggers this after effect which set data to async storage and updates the historylist
     useEffect(()=> {
         setData(historyList)
     },[historyList])
 
 
+
     
     // to handle qr scan result
     const handleqrCodeScan = ({ data,type })=> {
+
+        // set scan to true so that only one scan output is saved to list
+        // if not it keeps giving data 3 4 times
         setScanned(true)
         let currentDate = getCurrentDate()
         let currentTime = getCurrentTime()
 
         let amOrPm
+
 
         // checks if current time is AM or PM
         if (parseInt(currentTime.substring(0,currentTime.indexOf(':'))) > 11) {
@@ -57,10 +64,16 @@ const CameraView = ({ navigation })=> {
         }
 
         // vibration on scan complete
-        Vibration.vibrate(100)
+        Vibration.vibrate(100)  
 
+
+        // generate unique id for each scan
         const id = uuid.v4()
+
+        // new singular item to be soted in the list
         const newHistoryListItem = {id,data,type,currentDate,currentTime,amOrPm}
+
+        // update state variable
         setHistoryList([newHistoryListItem,...historyList])
 
 
@@ -89,7 +102,8 @@ const CameraView = ({ navigation })=> {
                         barCodeTypes: [BarCodeScanner.Constants.BarCodeType.qr],
                     }}
 
-                    // handles output 
+                    // only if scanned is false it gives output otherwise not
+                    // this saves multiple output from single scan
                     onBarCodeScanned={scanned ? undefined : handleqrCodeScan}
 
                     // handles flashlight

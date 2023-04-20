@@ -5,6 +5,8 @@ import HistoryScreenNav from '../components/historyScreenOnSelectFiles/HistorySc
 import { useGlobalContext } from '../context'
 
 
+// different screen when an item is selected 
+// not a proper way
 const HistoryScreenOnSelectItem = ({ navigation,route })=> {
 
     const { historyList } = useGlobalContext()
@@ -17,6 +19,7 @@ const HistoryScreenOnSelectItem = ({ navigation,route })=> {
 }
 
 
+// styles
 const styles = StyleSheet.create({
     mainScreen : {
         flex:1

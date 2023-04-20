@@ -11,20 +11,28 @@ export const AppProvider = ({children})=> {
     // state variable to handle flashlight 
     const [isFlashLightOn,setIsFlashLightOn] = useState(false)
 
+
+    // history list state variable
     const [historyList,setHistoryList] = useState([])
 
+
+    // scanned state variable to check if camera has scanned a code or not
     const [scanned, setScanned] = useState(false);
 
 
+    // delete a particular item
     const deleteItem = (id)=> {
         setHistoryList(historyList.filter((item)=> item.id !== id))
     }
 
+    // show toast msg and clear the history list state variable
     const showToastAndClearHistory = ()=> {
         setHistoryList([])
         ToastAndroid.show('Cleared History', ToastAndroid.SHORT)
     }
     
+
+    // ask user to confirm clear history list
     const clearHistoryList = ()=> {
         Alert.alert('Clear history?', 'All scan history would be cleared',
             [
@@ -43,12 +51,16 @@ export const AppProvider = ({children})=> {
         )  
     }
 
+
     // toggle flashlight
     const toggleFlashLight = ()=> {
         setIsFlashLightOn(!isFlashLightOn)
     }
+
+
     return (
 
+        // context provider for global usage 
         <AppContext.Provider
             value={{
                 isFlashLightOn,
@@ -61,10 +73,12 @@ export const AppProvider = ({children})=> {
                 deleteItem,
             }}
         >
-            {children}
+            {/* to render all other chil components */}
+            {children} 
         </AppContext.Provider>
     )
 }
+
 
 
 // custom hook for global context

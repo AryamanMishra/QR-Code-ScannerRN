@@ -50,4 +50,6 @@ const styles = StyleSheet.create({
         width:235,
     },
 })
+
+
 export default ZoomControlSlider

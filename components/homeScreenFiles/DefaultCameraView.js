@@ -7,6 +7,7 @@ import SettingsIcon from 'react-native-vector-icons/Feather'
 // renders when app is opened for the first time or no camera permission is provided
 const DefaultCameraView = ({ onPress })=> {
 
+    // opens app settings   
     const openSettigs = ()=> {
         Linking.openSettings()
     }
@@ -33,12 +34,19 @@ const DefaultCameraView = ({ onPress })=> {
                 >
                 </CameraIcon>
             </TouchableOpacity>
+
+
+            {/* gives user liberty to provide camera permission from settings any time */}
+            {/* android by default do no asks for permission if it is denied once */}
+            {/* so if permission is denied by mistake this space can be used to provide it */}
             <View style={styles.downView}>
                 <Text style={styles.textD}>You can always provide permission directly from app settings </Text>
                 <TouchableOpacity
                     style={styles.settingsIcon}
                     onPress={openSettigs}
                 >
+
+                {/* react native settings icon  */}
                     <SettingsIcon 
                         name='settings'
                         size={27}

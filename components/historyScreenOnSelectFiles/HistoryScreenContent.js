@@ -4,6 +4,7 @@ import { useGlobalContext } from '../../context'
 import HistoryScreenListItem from './HistoryScreenListItem'
 
 
+// main content page when history item is selected
 const HistoryScreenContent = ({ route })=> {
 
     const { historyList } = useGlobalContext()
