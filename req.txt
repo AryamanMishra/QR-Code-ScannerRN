@@ -1,2 +1,1 @@
 get qr code itself
-set local context

@@ -6,21 +6,33 @@ import { useGlobalContext } from '../../context'
 
 
 
-// navbar of output page
+// history item when clicked opens a detail page showing captured link date type, etc
+// this is the navbar component of that page
 const ItemNavbar = ({ navigation,currentDate,id })=> {
 
+    // to delete this item
     const {deleteItem} = useGlobalContext()
+
+    // handles back press
     const handleBackButton = ()=> {
         navigation.goBack()
     }
 
-    const helper = ()=> {
+
+    // helper function to handle all processes after user press delete item button
+    const helperDelete = ()=> {
         deleteItem(id)
         navigation.goBack()
+
+        // android toast
         ToastAndroid.show('Scan removed from history', ToastAndroid.SHORT)
     }
 
+
+    // prompt to conform delete
     const handleDeleteItemAndNavBack = ()=> {
+
+        // alert msg
         Alert.alert('Delete Scan','Are you Sure you want to remove the item from history?', 
             [
                 {
@@ -29,21 +41,29 @@ const ItemNavbar = ({ navigation,currentDate,id })=> {
                 },
                 {
                     text:'Yes',
-                    onPress:()=>helper()
+
+                    // if yes then commence delete process
+                    onPress:()=>helperDelete()
                 }
             ],
             {
+                // if user clicks somewhere else on the screen close the prompt
                 cancelable: true
             }
         )
        
     }
 
+
+    // delete button props
     const deleteButtonProps = {
         style: styles.clearItemButton
     }
 
+
     return (
+
+        // upper container
         <View style={styles.navContainer}>
             <View style={styles.innerWrapper}>
 
@@ -62,6 +82,9 @@ const ItemNavbar = ({ navigation,currentDate,id })=> {
                 </Pressable> 
                 <Text style={styles.navText}>Scan on {currentDate}</Text>
             </View>
+
+
+            {/* delete button view */}
             <View 
                 {...deleteButtonProps}
             >
@@ -69,6 +92,8 @@ const ItemNavbar = ({ navigation,currentDate,id })=> {
                     android_ripple={{color:'white',borderless:true,radius:52}}  
                     onPress={handleDeleteItemAndNavBack} 
                 >
+
+                {/* react native trash icon  */}
                 <TrashIcon 
                     name='trash-2'
                     size={25}

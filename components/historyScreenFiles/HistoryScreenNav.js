@@ -5,10 +5,15 @@ import { useGlobalContext } from '../../context'
 import TrashIcon from 'react-native-vector-icons/Feather'
 
 
+// navbar of history screen
 const HistoryScreenNav = ({ navigation })=> {
 
+
+    // obtain state variables from global context
     const {historyList,clearHistoryList} = useGlobalContext()
 
+
+    // props of main container
     const navProps = {
         style: stylesofHistoryNav.navContainer
     }
@@ -33,10 +38,13 @@ const HistoryScreenNav = ({ navigation })=> {
                 </Pressable> 
                 <Text style={stylesofHistoryNav.navText}>History</Text>
             </View>
+
+            {/* if history list is no empty  show clrar history button*/}
             {
                 historyList.length !== 0 &&
                 <View 
-                style={stylesofHistoryNav.clearHistoryButton}>
+                    style={stylesofHistoryNav.clearHistoryButton}
+                >
                     <Pressable 
                         android_ripple={{color:'grey',borderless:true,radius:84}}   
                         onPress={clearHistoryList} 
@@ -54,6 +62,7 @@ const HistoryScreenNav = ({ navigation })=> {
 }
 
 
+// styles
 export const stylesofHistoryNav = StyleSheet.create({
     navContainer : {
         flex:0.97,
