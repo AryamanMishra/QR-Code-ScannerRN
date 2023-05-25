@@ -2,11 +2,13 @@ import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import WebIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import QRCodeIcon from 'react-native-vector-icons/Ionicons'
-
+import { useGlobalContext } from '../../context'
 
 
 // utility bar on output page providing open website and view code options
 const OutputUtilityBar = ({ checkURL })=> {
+
+    const {dataLinkOrOther} = useGlobalContext()
     return (
         <View style={styles.outputUtilityBar}>
             <TouchableOpacity
@@ -21,7 +23,7 @@ const OutputUtilityBar = ({ checkURL })=> {
                         color='white'
                         size={27}
                     />
-                    <Text style={styles.IconText}>Open Site</Text>
+                    <Text style={styles.IconText}>{dataLinkOrOther === 'other' ? 'Copy Text' : 'Open Site'}</Text>
                 </View>
             </TouchableOpacity>
             

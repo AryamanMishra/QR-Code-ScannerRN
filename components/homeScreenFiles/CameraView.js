@@ -16,7 +16,7 @@ const CameraView = ({ navigation })=> {
 
 
     // using global context
-    const {isFlashLightOn,historyList,setHistoryList} = useGlobalContext()
+    const {isFlashLightOn,historyList,setHistoryList,setLinkData} = useGlobalContext()
 
     // ensures that camera stays on even after screen navigation
     const isFocused = useIsFocused();
@@ -49,6 +49,7 @@ const CameraView = ({ navigation })=> {
         // set scan to true so that only one scan output is saved to list
         // if not it keeps giving data 3 4 times
         setScanned(true)
+        setLinkData(data)
         let currentDate = getCurrentDate()
         let currentTime = getCurrentTime()
 

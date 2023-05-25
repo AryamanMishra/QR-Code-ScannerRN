@@ -23,7 +23,8 @@ const HistoryScreen = ({ navigation })=> {
 // styles
 const styles = StyleSheet.create({
     historyScreen : {
-        flex:1
+        flex:1,
+        backgroundColor:'black',
     },
     text : {
         color:'white',

@@ -70,7 +70,7 @@ const HistoryScreenNav = ({ navigation })=> {
                     style={stylesofHistoryNav.clearHistoryButton}
                 >
                     <Pressable 
-                        android_ripple={{color:'grey',borderless:true,radius:35}}   
+                        android_ripple={longPressItem ? {color:'white',borderless:true,radius:25} : {color:'grey',borderless:true,radius:25}}   
                         onPress={longPressItem ? handleLongPressItem : clearHistoryList} 
                     >
                     <TrashIcon 
@@ -121,14 +121,14 @@ export const stylesofHistoryNav = StyleSheet.create({
         letterSpacing:0.8
     },
     clearHistoryButton : {
-        paddingHorizontal:15,
-        paddingVertical:15,
+        paddingHorizontal:12,
+        paddingVertical:12,
         borderRadius:50,
         marginTop:40,
-        marginRight:27,
+        marginRight:30,
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:'rgba(50,10,50,0.1)',
+        backgroundColor:'rgba(50,100,150,0.5)',
     },
 })
 export default HistoryScreenNav

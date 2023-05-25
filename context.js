@@ -64,6 +64,10 @@ export const AppProvider = ({children})=> {
 
     const [selectedHistoryItemId,setSelectedHistoryItemId] = useState(0)
 
+    const [dataLinkOrOther,setDataLinkOrOther] = useState('link')
+
+    const [linkData,setLinkData] = useState('')
+
     return (
 
         // context provider for global usage 
@@ -81,7 +85,10 @@ export const AppProvider = ({children})=> {
                 setLongPressItem,
                 selectedHistoryItemId,
                 setSelectedHistoryItemId,
-                clearHistoryItem
+                clearHistoryItem,
+                dataLinkOrOther,
+                setDataLinkOrOther,
+                linkData,setLinkData
             }}
         >
             {/* to render all other chil components */}

@@ -1,25 +1,55 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View,Text,StyleSheet, Linking, ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import OutputNavbar from '../components/outputScreenFiles/OutputNavbar.js';
 import OutputUtilityBar from '../components/outputScreenFiles/OutputUtilityBar';
+import { useGlobalContext } from '../context.js';
+import { ToastAndroid } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 
 
 // qr output screen
 const QrScanOutput = ({ route,navigation })=> {
 
-
     // recieve data from camera view(home screen)
     const { data,type,currentDate,currentTime,amOrPm } = route.params
 
 
-    // check if URL is valid or not
-    const checkURL = ()=> {
+    const {dataLinkOrOther,setDataLinkOrOther,linkData,setLinkData} = useGlobalContext()
 
-        // if url is valid open it
-        if (Linking.canOpenURL) {
-            Linking.openURL(data)
+    const copyToClipboard = async (data) => {
+        await Clipboard.setStringAsync(data);
+    };
+
+
+    const checkData = ()=> {
+        if (linkData.substring(0,8) === 'https://') {
+            return true
         }
+        else if (linkData.substring(0,7) === 'http://') {
+            ToastAndroid.show('This link might not be safe',ToastAndroid.LONG,ToastAndroid.TOP)
+            return true
+        }
+        else {
+            console.log('hi')
+            return false
+        }
+    }
+
+
+
+
+    // check if URL is valid or not
+    const handlePress = ()=> {
+        // if url is valid open it
+        if (checkData) {
+            setDataLinkOrOther('link')
+            Linking.openURL(linkData)
+        }
+        else {
+            ToastAndroid.show('Text Copied to clipboard',ToastAndroid.SHORT)
+        }
+        setLinkData('')
     }
 
     
@@ -34,11 +64,11 @@ const QrScanOutput = ({ route,navigation })=> {
 
                 {/* recieved data  */}
                 <Text 
+                    
                     style={styles.outputData}
-                    onPress={checkURL}
+                    onPress={handlePress}
                 >
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum nesciunt quae, saepe ducimus hic natus exercitationem officiis sed quibusdam porro tempore, minus, consequatur provident quos vitae ex pariatur aliquid maiores.
-                    Quas doloribus illo officia voluptatibus iusto cum ab tempora, animi quibusdam voluptatem obcaecati veritatis voluptas, dolorem dolore, debitis libero. Molestias voluptatem recusandae nihil assumenda ipsam iure tenetur enim aliquid soluta!
+                    {data}
                 </Text>
 
 
@@ -60,7 +90,7 @@ const QrScanOutput = ({ route,navigation })=> {
 
             {/* utility bar  */}
             <OutputUtilityBar
-                checkURL={checkURL}
+                checkURL={handlePress}
             />
             <StatusBar style='light'/>
         </ScrollView>
