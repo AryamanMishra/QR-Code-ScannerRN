@@ -110,7 +110,8 @@ const ItemNavbar = ({ navigation,currentDate,id })=> {
 // styles
 const styles = StyleSheet.create({
     navContainer : {
-        flex:1.1,
+        flex:2,
+        height:118,
         backgroundColor:'#121917',
         width:'100%',
         justifyContent:'space-between',
@@ -135,8 +136,8 @@ const styles = StyleSheet.create({
         paddingHorizontal:10,
         paddingVertical:10,
         borderRadius:50,
-        marginTop:40,
-        marginRight:30,
+        marginTop:30,
+        marginRight:25,
         alignItems:'center',
         justifyContent:'center',
         backgroundColor:'rgba(100,100,100,0.4)',

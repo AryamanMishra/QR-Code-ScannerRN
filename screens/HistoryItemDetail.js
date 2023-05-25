@@ -1,5 +1,5 @@
 import React from 'react'
-import { View,Text,StyleSheet, Linking } from 'react-native'
+import { View,Text,StyleSheet, Linking,ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import OutputUtilityBar from '../components/outputScreenFiles/OutputUtilityBar';
 import ItemNavbar from '../components/HistoryItemDetailfiles/ItemNavbar.js';
@@ -23,7 +23,7 @@ const HistoryItemDetail = ({ route,navigation })=> {
 
     
     return (
-        <View style={styles.outputContainer}>
+        <ScrollView style={styles.outputContainer}>
 
             {/* navbar  */}
             <ItemNavbar navigation={navigation} id={route.params.item.id}currentDate={currentDate}/>
@@ -62,7 +62,7 @@ const HistoryItemDetail = ({ route,navigation })=> {
             />
             
             <StatusBar style='light'/>
-        </View>
+        </ScrollView>
     )
 }
 
@@ -72,15 +72,15 @@ const HistoryItemDetail = ({ route,navigation })=> {
 const styles = StyleSheet.create({
     outputContainer : {
         flex:1,
-        justifyContent:'center',
-        alignItems:'center',
+        // justifyContent:'center',
+        // alignItems:'center',
         backgroundColor:'#000',
     },
     outputContent : {
         width:'100%',
-        flex:6.5, 
+        flex:5,
         gap:12,
-        marginVertical:25,
+        marginVertical:30,
         paddingHorizontal:25
     },
     outputData : {

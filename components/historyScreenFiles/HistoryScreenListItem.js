@@ -1,18 +1,17 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
 import ArrowRight from 'react-native-vector-icons/FontAwesome'
+import { useGlobalContext } from '../../context'
 
 
 // individual history list item
 const HistoryScreenListItem = ({item,navigation})=> {
 
 
-    // handles long press of item
-    const handleLongPress = (id)=> {
-        navigation.navigate('HistoryScreenOnSelect', {
-            id
-        })
-    }
+    const {longPressItem,
+        setLongPressItem,
+        selectedHistoryItemId,
+        setSelectedHistoryItemId} = useGlobalContext()
 
 
     // handles single press of item
@@ -22,15 +21,22 @@ const HistoryScreenListItem = ({item,navigation})=> {
         })
     }
 
+    const handleLongPress = ()=> {
+        setLongPressItem(true)
+        setSelectedHistoryItemId(item.id)  
+    }
+
+
     // data,
     // type,
     // currentDate,
     // currentTime,
     // amOrPm,
+
     return (
         <TouchableHighlight
             activeOpacity={0.65}  // active opacity on item press
-            style={stylesofListItem.itemView}
+            style={longPressItem === true && selectedHistoryItemId === item.id ? stylesofListItem.selectedItemView : stylesofListItem.itemView}
             onLongPress={()=>handleLongPress(item.id)} 
             onPress={()=>handlePress()}
         >
@@ -60,7 +66,16 @@ export const stylesofListItem = StyleSheet.create({
         borderWidth:0.3,
         borderRadius:7,
         borderColor:'white',
-        backgroundColor:'#254250',
+        backgroundColor:'#103250',
+        marginTop:40,
+        marginHorizontal:19,
+        padding:18,
+    },
+    selectedItemView : {
+        borderWidth:0.3,
+        borderRadius:7,
+        borderColor:'white',
+        backgroundColor:'#07a',
         marginTop:40,
         marginHorizontal:19,
         padding:18,

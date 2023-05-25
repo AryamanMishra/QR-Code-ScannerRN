@@ -1,5 +1,5 @@
 import React from 'react'
-import { View,Text,StyleSheet, Linking } from 'react-native'
+import { View,Text,StyleSheet, Linking, ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import OutputNavbar from '../components/outputScreenFiles/OutputNavbar.js';
 import OutputUtilityBar from '../components/outputScreenFiles/OutputUtilityBar';
@@ -24,7 +24,7 @@ const QrScanOutput = ({ route,navigation })=> {
 
     
     return (
-        <View style={styles.outputContainer}>
+        <ScrollView style={styles.outputContainer}>
 
             {/* navbar  */}
             <OutputNavbar navigation={navigation}/>
@@ -37,7 +37,8 @@ const QrScanOutput = ({ route,navigation })=> {
                     style={styles.outputData}
                     onPress={checkURL}
                 >
-                    {data}
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum nesciunt quae, saepe ducimus hic natus exercitationem officiis sed quibusdam porro tempore, minus, consequatur provident quos vitae ex pariatur aliquid maiores.
+                    Quas doloribus illo officia voluptatibus iusto cum ab tempora, animi quibusdam voluptatem obcaecati veritatis voluptas, dolorem dolore, debitis libero. Molestias voluptatem recusandae nihil assumenda ipsam iure tenetur enim aliquid soluta!
                 </Text>
 
 
@@ -61,9 +62,8 @@ const QrScanOutput = ({ route,navigation })=> {
             <OutputUtilityBar
                 checkURL={checkURL}
             />
-
             <StatusBar style='light'/>
-        </View>
+        </ScrollView>
     )
 }
 
@@ -73,13 +73,13 @@ const QrScanOutput = ({ route,navigation })=> {
 const styles = StyleSheet.create({
     outputContainer : {
         flex:1,
-        justifyContent:'center',
-        alignItems:'center',
+        // justifyContent:'center',
+        // alignItems:'center',
         backgroundColor:'#000',
     },
     outputContent : {
         width:'100%',
-        flex:6.5, 
+        flex:1,
         gap:12,
         marginVertical:25,
         paddingHorizontal:25

@@ -71,7 +71,7 @@ const OutputNavbar = ({ navigation })=> {
                     <AboutIcon 
                         name='info'
                         size={22}
-                        color='white'
+                        color='white' 
                     />
                 </Pressable>  
             </View>
@@ -84,10 +84,12 @@ const OutputNavbar = ({ navigation })=> {
 // styles
 const styles = StyleSheet.create({
     outputNavbarContainer : {
-        flex:1.05,
+        flex:1,
         backgroundColor:'#121917',
         width:'100%',
+        height:110,
         justifyContent:'space-between',
+        alignItems:'center',
         borderBottomWidth:0.5,
         borderBottomColor:'grey',
         flexDirection:'row'
@@ -105,8 +107,8 @@ const styles = StyleSheet.create({
         letterSpacing:0.8
     },
     aboutPageLink : {
-        marginTop:67,
-        marginRight:42,
+        marginTop:40,
+        marginRight:30,
     }
 })
 

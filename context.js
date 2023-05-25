@@ -51,12 +51,18 @@ export const AppProvider = ({children})=> {
         )  
     }
 
-
+    const clearHistoryItem = (id)=> {
+        setHistoryList(historyList.filter((item)=>item.id !== id))
+    }
     // toggle flashlight
     const toggleFlashLight = ()=> {
         setIsFlashLightOn(!isFlashLightOn)
     }
 
+
+    const [longPressItem,setLongPressItem] = useState(false)
+
+    const [selectedHistoryItemId,setSelectedHistoryItemId] = useState(0)
 
     return (
 
@@ -71,6 +77,11 @@ export const AppProvider = ({children})=> {
                 scanned,
                 setScanned,
                 deleteItem,
+                longPressItem,
+                setLongPressItem,
+                selectedHistoryItemId,
+                setSelectedHistoryItemId,
+                clearHistoryItem
             }}
         >
             {/* to render all other chil components */}

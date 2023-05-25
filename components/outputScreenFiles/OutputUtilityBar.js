@@ -51,10 +51,10 @@ const OutputUtilityBar = ({ checkURL })=> {
 // styles
 const styles = StyleSheet.create({
     outputUtilityBar : {
-        flex:1,
+        flex:2,
         width:'100%',
-        position:'absolute',
-        top:'52%',
+        marginBottom:100,
+        marginTop:40
     },
     icon : {
         padding:12,

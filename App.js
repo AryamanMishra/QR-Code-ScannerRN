@@ -5,7 +5,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import QrScanOutput from "./screens/QrScanOutput.js";
 import About from "./screens/About.js";
 import HistoryScreen from "./screens/HistoryScreen.js";
-import HistoryScreenOnSelectItem from './screens/HistoryScreenOnSelectItem'
 import HistoryItemDetail from "./screens/HistoryItemDetail.js";
 
 
@@ -70,13 +69,6 @@ const App = ()=> {
 						}}
 					/>
 
-					<Stack.Screen
-						name="HistoryScreenOnSelect"
-						component={HistoryScreenOnSelectItem}
-						options={{
-							animation:'none'
-						}}
-					/>
 					<Stack.Screen
 						name="HistoryItemDetail"
 						component={HistoryItemDetail}

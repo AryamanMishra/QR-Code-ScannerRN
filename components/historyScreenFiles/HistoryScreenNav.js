@@ -3,6 +3,7 @@ import {View,Text,Pressable, StyleSheet} from 'react-native'
 import ArrowLeft from 'react-native-vector-icons/Octicons'
 import { useGlobalContext } from '../../context'
 import TrashIcon from 'react-native-vector-icons/Feather'
+import { useBackHandler } from '@react-native-community/hooks'
 
 
 // navbar of history screen
@@ -12,11 +13,36 @@ const HistoryScreenNav = ({ navigation })=> {
     // obtain state variables from global context
     const {historyList,clearHistoryList} = useGlobalContext()
 
+    const {longPressItem,
+        setLongPressItem,
+        selectedHistoryItemId,
+        setSelectedHistoryItemId,clearHistoryItem} = useGlobalContext()
+
 
     // props of main container
     const navProps = {
-        style: stylesofHistoryNav.navContainer
+        style: longPressItem === true ? stylesofHistoryNav.navContainerOnSelected: stylesofHistoryNav.navContainer
     }
+
+    const handleLongPressItem = ()=> {
+        clearHistoryItem(selectedHistoryItemId)
+        setLongPressItem(false)
+        setSelectedHistoryItemId(0)
+    }
+
+    const handleLongPressItemArrow = ()=> {
+        setLongPressItem(false)
+    }
+
+    useBackHandler(() => {
+        if (longPressItem) {
+            handleLongPressItemArrow()
+            return true
+        }
+        return false
+    })
+
+
     return (
         <View {...navProps}>
             <View style={stylesofHistoryNav.innerWrapper}>
@@ -24,9 +50,7 @@ const HistoryScreenNav = ({ navigation })=> {
                 {/* back navigation icon  */}
                 <Pressable
                     android_ripple={{color:'grey',borderless:true,radius:30}}
-                    onPress={()=> {
-                            navigation.goBack() 
-                        }}
+                    onPress= {longPressItem ? handleLongPressItemArrow : ()=> navigation.goBack()}
                 >
                     {/* react native left arrow icon  */}
                     <ArrowLeft 
@@ -46,13 +70,13 @@ const HistoryScreenNav = ({ navigation })=> {
                     style={stylesofHistoryNav.clearHistoryButton}
                 >
                     <Pressable 
-                        android_ripple={{color:'grey',borderless:true,radius:84}}   
-                        onPress={clearHistoryList} 
+                        android_ripple={{color:'grey',borderless:true,radius:35}}   
+                        onPress={longPressItem ? handleLongPressItem : clearHistoryList} 
                     >
                     <TrashIcon 
                         name='trash-2'
-                        size={25}
-                        color='gold'
+                        size={24}
+                        color={longPressItem ? 'white' : 'gold'}
                     />
                     </Pressable> 
                 </View>
@@ -67,6 +91,16 @@ export const stylesofHistoryNav = StyleSheet.create({
     navContainer : {
         flex:0.97,
         backgroundColor:'#121917',
+        width:'100%',
+        justifyContent:'space-between',
+        borderBottomWidth:0.5,
+        borderBottomColor:'grey',
+        flexDirection:'row',
+        alignItems:'center'
+    },
+    navContainerOnSelected : {
+        flex:0.97,
+        backgroundColor:'rgb(50,110,50)',
         width:'100%',
         justifyContent:'space-between',
         borderBottomWidth:0.5,
@@ -94,7 +128,7 @@ export const stylesofHistoryNav = StyleSheet.create({
         marginRight:27,
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:'#121917',
+        backgroundColor:'rgba(50,10,50,0.1)',
     },
 })
 export default HistoryScreenNav
