@@ -1,2 +1,1 @@
 get qr code itself
-handle text and links differently
