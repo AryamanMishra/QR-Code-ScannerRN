@@ -1,8 +1,9 @@
-import React from 'react'
-import { StyleSheet, Text, View,Pressable,Linking, TouchableOpacity } from 'react-native'
+import React, {useEffect} from 'react'
+import { StyleSheet, Text, View,Pressable,Linking, TouchableOpacity,BackHandler } from 'react-native'
 import ArrowLeft from 'react-native-vector-icons/Octicons'
 import GithubIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import pkgInfo from '../package.json'
+import { ToastAndroid } from 'react-native'
 
 
 // about screen
@@ -20,6 +21,23 @@ const About = ({ navigation })=> {
             Linking.openURL(githubLink)
         }
     }
+
+    const handleLongPress = ()=> {
+        ToastAndroid.showWithGravityAndOffset('Github Repository Link', ToastAndroid.SHORT,ToastAndroid.CENTER,50.00,50.00)
+    }
+
+    // const goBack = ()=> {
+    //     navigation.goBack()
+    // }
+
+    // useEffect(()=> {
+	// 	const backHandler = BackHandler.addEventListener(
+	// 	   'hardwareBackPress',
+	// 		goBack
+	// 	)
+	// 	return () => backHandler.remove();
+	// },[])
+
 
     return (
         <View style={styles.aboutPage}>
@@ -50,6 +68,7 @@ const About = ({ navigation })=> {
                 <View style={styles.githubLink}>
                     <TouchableOpacity
                         onPress={checkURL}
+                        onLongPress={handleLongPress}
                     >
                         <GithubIcon 
                             name='github'

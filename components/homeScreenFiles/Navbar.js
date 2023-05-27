@@ -4,6 +4,7 @@ import FlashLightIcon from 'react-native-vector-icons/MaterialIcons'
 import { useGlobalContext } from '../../context'
 import AboutIcon from 'react-native-vector-icons/FontAwesome'
 import HistoryIcon from 'react-native-vector-icons/MaterialIcons'
+import { ToastAndroid } from 'react-native'
 
 
 // home screen navbar
@@ -13,6 +14,11 @@ const Navbar = ({ navigation })=> {
     // using global context to handle flaslight state variables 
     const {isFlashLightOn,toggleFlashLight} = useGlobalContext()
     
+    const handleLongPress = (screenName)=> {
+        ToastAndroid.showWithGravity(screenName,ToastAndroid.SHORT,ToastAndroid.CENTER)
+    }
+
+
     return (
         <View style={styles.navbarContainer}>
 
@@ -20,6 +26,7 @@ const Navbar = ({ navigation })=> {
             <TouchableOpacity
                 style={styles.flashLightIcon}
                 onPress={toggleFlashLight}
+                onLongPress={()=>handleLongPress('Flashlight')}
             >
                 {/* react native flash light icon  */}
                 <FlashLightIcon
@@ -36,6 +43,7 @@ const Navbar = ({ navigation })=> {
                 onPress={()=> {
                     navigation.navigate('HistoryScreen')
                 }}
+                onLongPress={()=>handleLongPress('History')}
             >
                 {/* react native flash light icon  */}
                 <HistoryIcon
@@ -53,6 +61,7 @@ const Navbar = ({ navigation })=> {
                 onPress={()=> {
                     navigation.navigate('AboutScreen')
                 }}
+                onLongPress={()=>handleLongPress('About')}
             >
                 {/* react native flash light icon  */}
                 <AboutIcon

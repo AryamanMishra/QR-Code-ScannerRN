@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { Camera } from 'expo-camera';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet,View,BackHandler,Alert,ActivityIndicator } from 'react-native';
 import DefaultCamera from '../components/homeScreenFiles/DefaultCameraView';
 import Navbar from '../components/homeScreenFiles/Navbar';
 import CameraView from '../components/homeScreenFiles/CameraView';
+
 
 // home screen
 const HomeScreen = ({ navigation })=> {

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { Text, View,StyleSheet, Pressable,BackHandler } from 'react-native'
 import ArrowLeft from 'react-native-vector-icons/Octicons'
-import AboutIcon from 'react-native-vector-icons/Fontisto'
+import AboutIcon from 'react-native-vector-icons/FontAwesome'
 import { useGlobalContext } from '../../context'
 
 
@@ -70,7 +70,7 @@ const OutputNavbar = ({ navigation })=> {
                 >
                     <AboutIcon 
                         name='info'
-                        size={22}
+                        size={25}
                         color='white' 
                     />
                 </Pressable>  
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     },
     aboutPageLink : {
         marginTop:40,
-        marginRight:30,
+        marginRight:40,
     }
 })
 
