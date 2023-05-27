@@ -1,8 +1,11 @@
-import React from 'react'
-import { View,Text,StyleSheet, Linking,ScrollView } from 'react-native'
+import React, {useEffect} from 'react'
+import { View,Text,StyleSheet, Linking,ScrollView,ToastAndroid } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import OutputUtilityBar from '../components/outputScreenFiles/OutputUtilityBar';
 import ItemNavbar from '../components/HistoryItemDetailfiles/ItemNavbar.js';
+import { useGlobalContext } from '../context';
+import * as Clipboard from 'expo-clipboard';
+
 
 
 // gives detail of a history item
@@ -11,15 +14,39 @@ const HistoryItemDetail = ({ route,navigation })=> {
 
     const { data,type,currentDate,currentTime,amOrPm } = route.params.item
 
-    
+
+    const {dataLinkOrOther,setDataLinkOrOther,linkData,setLinkData,checkData} = useGlobalContext()
+
+
+    const copyToClipboard = async (data) => {
+        await Clipboard.setStringAsync(data);
+    };
+
+
+
     // check if URL is valid or not
-    const checkURL = ()=> {
+    const handlePress = ()=> {
 
         // if url is valid open it
-        if (Linking.canOpenURL) {
-            Linking.openURL(data)
+        if (dataLinkOrOther === 'link') {
+            let checkD = checkData()
+            if (checkD) {
+                Linking.openURL(linkData)
+            }
+        }
+        else {
+            ToastAndroid.show('Text Copied to clipboard',ToastAndroid.SHORT)
+            copyToClipboard(linkData)  
         }
     }
+
+
+    useEffect(()=> {
+        let checkD = checkData()
+        if (checkD === false)
+            setDataLinkOrOther('other')
+    },[linkData])
+    
 
     
     return (
@@ -33,8 +60,8 @@ const HistoryItemDetail = ({ route,navigation })=> {
 
                 {/* recieved data  */}
                 <Text 
-                    style={styles.outputData}
-                    onPress={checkURL}
+                    style={dataLinkOrOther === 'link' ? styles.outputData : styles.outputDataText}
+                    onPress={handlePress}
                 >
                     {data}
                 </Text>
@@ -58,7 +85,7 @@ const HistoryItemDetail = ({ route,navigation })=> {
 
             {/* utility bar  */}
             <OutputUtilityBar
-                checkURL={checkURL}
+                checkURL={handlePress}
             />
             
             <StatusBar style='light'/>
@@ -85,6 +112,13 @@ const styles = StyleSheet.create({
     },
     outputData : {
         color:'#90e0ef',
+        lineHeight:33,
+        fontSize:20,
+        textDecorationLine:'underline',
+        marginBottom:5
+    },
+    outputDataText : {
+        color:'white',
         lineHeight:33,
         fontSize:20,
         textDecorationLine:'underline',

@@ -88,6 +88,7 @@ const CameraView = ({ navigation })=> {
                 amOrPm,
             })
         },90)
+        setScanned(false)
     }
 
 

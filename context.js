@@ -68,6 +68,19 @@ export const AppProvider = ({children})=> {
 
     const [linkData,setLinkData] = useState('')
 
+    const checkData = ()=> {
+        if (linkData.substring(0,8) === 'https://') {
+            return true
+        }
+        else if (linkData.substring(0,7) === 'http://') {
+            ToastAndroid.show('This link might not be safe',ToastAndroid.LONG,ToastAndroid.TOP)
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
     return (
 
         // context provider for global usage 
@@ -88,7 +101,9 @@ export const AppProvider = ({children})=> {
                 clearHistoryItem,
                 dataLinkOrOther,
                 setDataLinkOrOther,
-                linkData,setLinkData
+                linkData,
+                setLinkData,
+                checkData
             }}
         >
             {/* to render all other chil components */}

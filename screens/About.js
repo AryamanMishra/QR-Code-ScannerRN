@@ -65,7 +65,7 @@ const About = ({ navigation })=> {
             {/* main content */}
             <View style={styles.aboutPageContent}>
                 <Text style={styles.text}>
-                    A basic QR/Bar code scanner application made using react-native and react hooks
+                    An open source basic QR/Bar code scanner application made using react-native and react hooks
                 </Text>
             </View>
 

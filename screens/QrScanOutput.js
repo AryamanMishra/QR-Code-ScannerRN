@@ -15,44 +15,41 @@ const QrScanOutput = ({ route,navigation })=> {
     const { data,type,currentDate,currentTime,amOrPm } = route.params
 
 
-    const {dataLinkOrOther,setDataLinkOrOther,linkData,setLinkData} = useGlobalContext()
+    const {dataLinkOrOther,setDataLinkOrOther,linkData,setLinkData,checkData} = useGlobalContext()
 
     const copyToClipboard = async (data) => {
         await Clipboard.setStringAsync(data);
     };
 
 
-    const checkData = ()=> {
-        if (linkData.substring(0,8) === 'https://') {
-            return true
-        }
-        else if (linkData.substring(0,7) === 'http://') {
-            ToastAndroid.show('This link might not be safe',ToastAndroid.LONG,ToastAndroid.TOP)
-            return true
-        }
-        else {
-            console.log('hi')
-            return false
-        }
-    }
-
-
-
 
     // check if URL is valid or not
     const handlePress = ()=> {
+
         // if url is valid open it
-        if (checkData) {
-            setDataLinkOrOther('link')
-            Linking.openURL(linkData)
+        if (dataLinkOrOther === 'link') {
+            let checkD = checkData()
+            if (checkD) {
+                Linking.openURL(linkData)
+            }
         }
         else {
             ToastAndroid.show('Text Copied to clipboard',ToastAndroid.SHORT)
+            copyToClipboard(linkData)  
         }
-        setLinkData('')
     }
 
+
+    useEffect(()=> {
+        let checkD = checkData()
+        if (checkD === false)
+            setDataLinkOrOther('other')
+        else   
+            setDataLinkOrOther('link')
+    },[linkData])
     
+
+
     return (
         <ScrollView style={styles.outputContainer}>
 
